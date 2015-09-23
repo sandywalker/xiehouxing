@@ -1,0 +1,152 @@
+
+
+@media (max-width: 990px) {
+    .home-side{
+        display: none;
+    }
+    .home-product{
+        height:auto;
+    }
+    .thumb-md{
+        .thumb-image{
+            height:180px;
+        }
+    }
+
+    .navbar-search{
+        display: none;
+    }
+
+
+
+    footer{
+        height:auto;
+        font-size:18px;
+        .foot-main,.foot-copyright{
+            display:none;
+        }
+
+        .foot-mobile{
+            display: block;
+
+        }
+        .copyright{
+            line-height:30px;
+        }
+
+
+    }
+}
+
+@media (max-width: 768px){
+    .thumb-md{
+        .thumb-image{
+            height:180px;
+        }
+    }
+    .guide-banner{
+        .guide-brief{
+            bottom:10px;
+            h1{
+                font-size: 26px;
+            }
+            h4{
+                font-size: 12px;
+            }
+        }
+    }
+    .note-days{
+        display: none;
+    }
+    .note-content{
+        margin-left:0;
+    }
+    .sub-topic{
+        display: none;
+    }
+
+}
+
+
+
+@media (min-width: 990px){
+    .thumb-md{
+        .thumb-image{
+            height: 160px;
+        }
+    }
+    .thumb-lg{
+        .thumb-image{
+            height: 200px;
+        }
+    }
+    .thumb-xlg{
+        .thumb-image {
+            height: 240px;
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    .rdt_box img{
+        width:430px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .rdt_box img{
+        width:540px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .rdt_box{
+        z-index: 999;
+        position: relative;
+    }
+}
+
+
+/*==============================  trip ================================*/
+@media (max-width: 991px) {
+    .trip-sub-content.affix,.trip-sub-content.affix-bottom {
+        position: relative;
+    }
+}
+
+@media (min-width: 992px) {
+    .trip-sub-content.affix,.trip-sub-content.affix-bottom {
+        width:210px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .trip-sub-content.affix,.trip-sub-content.affix-bottom {
+        width:260px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .trip-nav{
+        display: none;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .trip-sidebar.affix,.trip-sidebar.affix-bottom {
+        width:140px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .trip-sidebar.affix,.trip-sidebar.affix-bottom {
+        width:170px;
+    }
+}
+
+/*==============================  trip end ================================*/
+

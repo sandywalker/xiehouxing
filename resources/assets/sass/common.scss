@@ -1,0 +1,18 @@
+$main-color:#00a7cf;
+$footbg:#005570;
+$navbg : #fff;
+$nav-link: #000;
+$foot-link-color:#ccc;
+$nav-linkhov: $main-color;
+$main-color-dark:darken($main-color,10);
+$main-color-light:lighten($main-color,10);
+$nav-active:#fff;
+$nav-activebg:$nav-linkhov;
+$nav-activebg-dark: darken($nav-linkhov,5);
+$nav-activebg-light: lighten($nav-linkhov,5);
+$thumb-radius:0;
+$orange:#ff980a;
+$price-color:$orange;
+$boy-color:#1493e3;
+$girl-color:#fa7fb6;
+$red-color:#e00;
