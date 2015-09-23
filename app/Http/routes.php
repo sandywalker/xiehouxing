@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -25,9 +23,15 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'], function()  
+// Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'], function()  
+// {
+// 	Route::get('/', function () {
+//     	return view('admin.index');
+// 	});  
+// });
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()  
 {
-	Route::get('/', function () {
-    	return view('admin.index');
-});  
+	Route::get('/', 'AdminHomeController@index'); 
+	Route::resource('dict', 'AdminDictController');
 });

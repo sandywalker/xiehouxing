@@ -13,12 +13,17 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
      mix.sass('app.scss','./public/css/app.css')
-    	.sass('main.scss','./public/css/main.css')
+    	.sass(['main.scss',
+               'responsive.scss'
+               ],'./public/css/main.css')
         .scripts([
              'libs/jquery.min.js',
              'libs/bootstrap.min.js',
           ], './public/js/libs.js')
-       
+        .scripts([
+             'libs/html5shiv.min.js',
+             'libs/respond.min.js',
+          ], './public/js/shims.js')
          .styles([
              'libs/bootstrap.min.css'
          ], './public/css/libs.css')
