@@ -1,11 +1,12 @@
 @extends('app')
 
+@section('id','login')
+
 @section('content')
-<br><br><br><br>
-<div class="container-fluid">
+<div class="container-fluid container-login">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
                 <div class="panel-heading">登录邂逅游后台</div>
                 <div class="panel-body">
                     @if (count($errors) > 0)

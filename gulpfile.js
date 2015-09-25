@@ -19,6 +19,7 @@ elixir(function(mix) {
         .scripts([
              'libs/jquery.min.js',
              'libs/bootstrap.min.js',
+             'libs/vue.min.js',
           ], './public/js/libs.js')
         .scripts([
              'libs/html5shiv.min.js',

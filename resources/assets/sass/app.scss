@@ -1,2 +1,91 @@
  @import "common";
 
+
+.modal-header{
+	background:#f2f2f2;
+}
+.modal-backdrop{
+		display: none;
+}
+
+
+.bounce-transition{
+	display:block;
+	opacity:1;
+	transition: all .3s ease;
+	&.modal-backdrop{
+		opacity:.4;
+	}
+	.modal-dialog{
+		animation: bounce-in .3s;
+	}
+}
+
+.bounce-enter,.bounce-leave{
+	opacity:0;
+}
+
+.bounce-leave .modal-dialog{
+	animation: bounce-out .3s;
+}
+
+
+.bounce-enter.modal-backdrop,
+.bounce-leave.modal-backdrop{
+	display:none;
+}
+
+@keyframes bounce-in {
+  0% {
+  	opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+  	opacity: 0.3;
+    transform: scale(1.1);
+  }
+  100% {
+  	opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+  	opacity: 0.3;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+
+
+
+#login{
+	background:url(../img/login-bg.jpg);
+	.container-login{
+		margin-top:200px;
+	}
+}
+
+.app-title{
+	margin:0 0 15px 0;
+	font-size:22px;
+	height:45px;
+	line-height:45px;
+	padding:0 0 0 15px;
+	border-bottom:1px solid #eee;
+}
+
+button.btn-xs{
+	background:none;
+}
+
+.show{
+	display:block;
+}

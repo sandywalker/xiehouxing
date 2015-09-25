@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Dict;
+use App\DictItem;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-class AdminDictController extends Controller
+class AdminDictItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +17,7 @@ class AdminDictController extends Controller
      */
     public function index()
     {
-        return Dict::all();
-
-    }
-
-    public function main()
-    {
-        return view('admin.dict.main');
+        //
     }
 
     /**
@@ -35,6 +30,12 @@ class AdminDictController extends Controller
         //
     }
 
+    public function items(Request $request, $dictId)
+    {
+         $dict = Dict::find($dictId);
+         return $dict->items()->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -43,7 +44,8 @@ class AdminDictController extends Controller
      */
     public function store(Request $request)
     {
-        return Dict::create($request->all());
+        $dict = Dict::findOrFail($request->get('dictId'));
+        return $dict->items()->create($request->all());
     }
 
     /**
@@ -77,8 +79,8 @@ class AdminDictController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dict = Dict::findOrFail($id);
-        $dict->update($request->all());
+        $item = DictItem::find($id);
+        $item->update($request->all());
     }
 
     /**
@@ -89,6 +91,6 @@ class AdminDictController extends Controller
      */
     public function destroy($id)
     {
-        Dict::destroy($id);
+        DictItem::destroy($id);
     }
 }

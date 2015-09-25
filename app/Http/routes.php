@@ -32,6 +32,12 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()  
 {
-	Route::get('/', 'AdminHomeController@index'); 
-	Route::resource('dict', 'AdminDictController');
+	Route::get('/', 'AdminHomeController@index');
+	Route::get('/dashboard', 'AdminHomeController@dashboard'); 
+	Route::get('dicts/main', 'AdminDictController@main');
+	Route::get('dicts/{dictId}/items', 'AdminDictItemController@items');
+	Route::resource('dicts/items', 'AdminDictItemController');
+	Route::resource('dicts', 'AdminDictController');
+
+	
 });
