@@ -116,6 +116,19 @@
 			background: #555;
 		}
 
+		.user{
+			float:right;
+			width:120px;
+			line-height: 45px;
+		}
+		.user li{
+
+		}
+
+		.user a{
+			color:#fff;
+		}
+
 
 
 	</style>
@@ -123,7 +136,20 @@
 </head>
 <body>
 	<div class="topbar">
-		<div class="brand"> 邂逅行后台管理</div>
+		
+		<div class="user">
+					@if (Auth::check())
+						{{-- <ul class="nav navbar-nav navbar-right"> --}}
+							<div class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="{{ url('/auth/logout') }}">退出系统</a></li>
+								</ul>
+							</div>
+						{{-- </ul> --}}
+					@endif
+		</div>
+		<div class="brand" > 邂逅行后台管理</div>
 	</div>
 
 	<div class="sidebar">

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Log;
 
 class Authenticate
 {
@@ -40,6 +41,14 @@ class Authenticate
             } else {
                 return redirect()->guest('auth/login');
             }
+        }
+        $user = $this->auth->user();
+        if ( $user->states = 0) {
+            return redirect()->guest('auth/login');
+        }
+        Log::info($request->path());
+        if ($user->role != 'admin' && starts_with($request->path(),'admin')){
+           return redirect()->guest('/');
         }
 
         return $next($request);

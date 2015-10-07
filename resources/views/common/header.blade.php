@@ -25,8 +25,33 @@
 	                <li><a href="note-list.html">游记</a></li>
 	                <li><a href="forum.html">邂逅广场</a></li>
 	            </ul>
-	            <p class="navbar-text navbar-right"><a href="#" class="navbar-link">注册</a> | <a href="#" class="navbar-link">登录		</a>  
-	            </p>
+
+				 <ul class="nav navbar-nav navbar-right navbar-user">
+			        @if (Auth::guest())
+	            		<li> <a href="#" >注册</a></li>
+	            		<li> <a href="/auth/login" >登录</a></li>
+					@else
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="/auth/logout">退出</a></li>
+			          </ul>
+			        </li>
+			        @endif
+			      </ul>
+
+	           {{--  <p class="navbar-text navbar-right navbar-user">
+					@if (Auth::guest())
+	            		<a href="#" class="navbar-link">注册</a> | <a href="#" class="navbar-link">登录		</a>  
+					@else
+							<a class="dropdown">
+								欢迎：<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="{{ url('/auth/logout') }}">退出系统</a></li>
+								</ul>
+							</div>
+	            	@endif
+	            </p> --}}
 
 	            <form class="navbar-form  navbar-search navbar-right" role="search" id="navbarSearch">
 	                <div class="form-group">

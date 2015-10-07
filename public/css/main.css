@@ -128,6 +128,9 @@ img.full-width {
     margin: 15px 0 0 0; }
   .navbar-main #navbarSearch {
     margin-right: 0; }
+  .navbar-main .navbar-user {
+    color: #00a7cf;
+    font-size: 12px; }
 
 .nav-inverse .navbar-main {
   background: #00a7cf;

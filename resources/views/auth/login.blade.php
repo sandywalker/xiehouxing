@@ -9,23 +9,15 @@
             <div class="panel panel-info">
                 <div class="panel-heading">登录邂逅游后台</div>
                 <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('error')
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <br>
                         <div class="form-group">
-                            <label class="col-md-4 control-label">电子邮件</label>
+                            <label class="col-md-4 control-label">用户名</label>
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="username" class="form-control" name="username" value="{{ old('username') }}">
                             </div>
                         </div>
 
@@ -50,7 +42,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">登录</button>
 
-                                {{-- <a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码?</a> --}}
+                                {{-- <a class="btn btn-link" href="{{ url('/password/username') }}">忘记密码?</a> --}}
                             </div>
                         </div>
                     </form>
