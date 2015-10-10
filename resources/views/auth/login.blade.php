@@ -1,13 +1,13 @@
-@extends('app')
+@extends('def')
 
 @section('id','login')
 
 @section('content')
-<div class="container-fluid container-login">
+<div class="container container-login">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-info">
-                <div class="panel-heading">登录邂逅游后台</div>
+                <div class="panel-heading">登录邂逅行</div>
                 <div class="panel-body">
                     @include('error')
 

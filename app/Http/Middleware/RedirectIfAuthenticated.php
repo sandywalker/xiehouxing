@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Log;
 
 class RedirectIfAuthenticated
 {
@@ -34,15 +35,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
-
         if ($this->auth->check()) {
-            $user = $this->auth->user();
-            if ($user->role == 'admin'){
-               return redirect('/admin');
-            }
             return redirect('/');
         }
-
         return $next($request);
     }
 }

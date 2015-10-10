@@ -17,7 +17,6 @@ Route::get('/', 'HomeController@index');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
-Route::get('auth/afterLogin', 'Auth\AuthController@afterLogin');
 
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -35,10 +34,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 {
 	Route::get('/', 'AdminHomeController@index');
 	Route::get('/dashboard', 'AdminHomeController@dashboard'); 
+
 	Route::get('dicts/main', 'AdminDictController@main');
 	Route::get('dicts/{dictId}/items', 'AdminDictItemController@items');
 	Route::resource('dicts/items', 'AdminDictItemController');
 	Route::resource('dicts', 'AdminDictController');
+
+	Route::get('users/main', 'AdminUserController@main');
+	Route::get('users', 'AdminUserController@index');
+	Route::get('users/{id}/enable', 'AdminUserController@enableUser');
+	Route::get('users/{id}/disable', 'AdminUserController@disableUser');
+
+
+	Route::get('areas/main', 'AdminAreaController@main');
+	Route::resource('areas/{id}/children', 'AdminAreaController@children');
+	Route::resource('areas', 'AdminAreaController');
+
 
 	
 });

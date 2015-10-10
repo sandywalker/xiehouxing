@@ -30,8 +30,8 @@
 							</td>
 							<td>
 								<div class="action" > 
-									<button href="#" class="btn  btn-xs" v-on="click:editItem(item)"><i class="glyphicon glyphicon-pencil text-info"></i></button>
-									<button class="btn  btn-xs" v-on="click:deleteItem(item)"><i class="glyphicon glyphicon-remove text-danger"></i></button>
+									<button href="#" class="btn  btn-xs btn-alpha" v-on="click:editItem(item)"><i class="glyphicon glyphicon-pencil text-info"></i></button>
+									<button class="btn  btn-xs btn-alpha" v-on="click:deleteItem(item)"><i class="glyphicon glyphicon-remove text-danger"></i></button>
 								</div>
 							</td>
 						</tr>

@@ -179,11 +179,12 @@
 				</ul>
 			</li>
 			<li>
-				<h5><a href="#"><i class="glyphicon glyphicon-chevron-down pull-right"></i> 基础功能设置</a></h5>
+				<h5><a href="#"><i class="glyphicon glyphicon-chevron-down pull-right"></i> 系统管理</a></h5>
 				<ul>
+					<li><a href="#user" id="menu-user" data-url="/admin/users/main">用户管理</a></li>
 					<li><a href="#dict" id="menu-dict" data-url="/admin/dicts/main">数据字典管理</a></li>
 					<li><a href="#">图片库管理</a></li>
-					<li><a href="#">地区管理</a></li>
+					<li><a href="#area" id="menu-area" data-url="/admin/areas/main">地区管理</a></li>
 				</ul>
 			</li>
 			

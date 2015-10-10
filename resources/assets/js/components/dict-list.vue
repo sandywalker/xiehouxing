@@ -44,8 +44,8 @@
 						    >
 							<td>
 								<div class="action pull-right" v-class="active:isActive(dict)"> 
-									<button href="#" class="btn  btn-xs" v-on="click:editDict(dict)"><i class="glyphicon glyphicon-pencil text-info"></i></button>
-									<button class="btn  btn-xs" v-on="click:deleteDict(dict)"><i class="glyphicon glyphicon-remove text-danger"></i></button>
+									<button href="#" class="btn  btn-xs btn-alpha" v-on="click:editDict(dict)"><i class="glyphicon glyphicon-pencil text-info"></i></button>
+									<button class="btn  btn-xs btn-alpha" v-on="click:deleteDict(dict)"><i class="glyphicon glyphicon-remove text-danger"></i></button>
 								</div>
 							{{dict.name}} <!-- <span class="text-muted">({{dict.code}})</span> --></td>
 						</tr>

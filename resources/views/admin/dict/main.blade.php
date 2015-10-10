@@ -53,17 +53,6 @@
 		
 	</div>
 
-	<div class="container">
-	<div id="dictApp">
-		
-		
-		<!-- <pre>
-			@{{ $data | json }}
-		</pre> -->
-	</div>
-
-</div>
-
 @endsection
 
 @section('js')

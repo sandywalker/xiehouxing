@@ -46,7 +46,6 @@ class Authenticate
         if ( $user->states = 0) {
             return redirect()->guest('auth/login');
         }
-        Log::info($request->path());
         if ($user->role != 'admin' && starts_with($request->path(),'admin')){
            return redirect()->guest('/');
         }

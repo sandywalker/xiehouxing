@@ -29,17 +29,17 @@
             <div class="col-md-2">
                 <p><strong>关注我们</strong></p>
                 <p>
-                    <a href="#"><img src="img/weibo.png" alt=""/></a>
-                    <a href="#"><img src="img/wechat.png" alt=""/></a>
-                    <a href="#"><img src="img/qqspace.png" alt=""/></a>
-                    <a href="#"><img src="img/renren.png" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/weibo.png')}}" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/wechat.png')}}" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/qqspace.png')}}" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/renren.png')}}" alt=""/></a>
                 </p>
             </div>
             <div class="col-md-2">
                 <div class="text-right">
                     <p><strong>邂逅游公众号</strong></p>
                     <p>
-                        <img  class="qrcode" src="img/qrcode.png" alt=""/>
+                        <img  class="qrcode" src="{{asset('img/qrcode.png')}}" alt=""/>
                     </p>
                 </div>
 
@@ -54,7 +54,7 @@
             <div class="col-md-3">
                 <div >
                     <div class="foot-logo">
-                        <img src="img/foot-logo.png" alt=""/>
+                        <img src="{{asset('img/foot-logo.png')}}" alt=""/>
                     </div>
                 </div>
 

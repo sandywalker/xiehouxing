@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Validator;
 
@@ -26,7 +27,7 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     protected $redirectAfterLogout = '/';
-    protected $redirectTo =  '/auth/afterLogin';
+    
 
     protected $username = 'username';
 
@@ -49,7 +50,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:255|unique',
+            'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -75,11 +76,13 @@ class AuthController extends Controller
         ]);
     }
 
-    public function afterLogin(){
-        // Log::info('admin',Auth::user()->role);
-        // if (Auth::user() && Auth::user()->role == 'admin'){
-        //     return redirect('/admin');
-        // }
-        // return redirect('/admin2');
+    public function redirectPath()
+    {
+       $user = Auth::user();
+       if ($user->role == 'admin'){
+          return '/admin';
+       }
+       return '/';
     }
+
 }

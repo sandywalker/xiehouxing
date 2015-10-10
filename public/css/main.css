@@ -1125,6 +1125,17 @@ footer {
   font-size: 12px;
   border-top: 1px dotted #ddd; }
 
+/*---------------------------------   login and register pages ------------------------------*/
+#login {
+  background: url(../img/login-bg.jpg); }
+  #login .container-login {
+    margin: 150px auto; }
+
+#register {
+  background: url(../img/login-bg.jpg); }
+  #register .container-register {
+    margin: 150px auto; }
+
 @media (max-width: 990px) {
   .home-side {
     display: none; }

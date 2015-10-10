@@ -82,11 +82,6 @@
     transform: scale(0);
     opacity: 0; } }
 
-#login {
-  background: url(../img/login-bg.jpg); }
-  #login .container-login {
-    margin-top: 200px; }
-
 .app-title {
   margin: 0 0 15px 0;
   font-size: 22px;
@@ -95,7 +90,7 @@
   padding: 0 0 0 15px;
   border-bottom: 1px solid #eee; }
 
-button.btn-xs {
+button.btn-alpha {
   background: none; }
 
 .show {

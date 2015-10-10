@@ -79,6 +79,7 @@ class AdminDictController extends Controller
     {
         $dict = Dict::findOrFail($id);
         $dict->update($request->all());
+        return $dict;
     }
 
     /**

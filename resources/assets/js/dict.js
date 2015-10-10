@@ -1,7 +1,7 @@
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
 
- var token = $('meta[name="csrf-token"]').attr('content');
+var token = $('meta[name="csrf-token"]').attr('content');
 Vue.http.headers.common['X-CSRF-TOKEN'] = token;
 
 new Vue({
