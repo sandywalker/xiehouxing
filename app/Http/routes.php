@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::resource('areas/{id}/children', 'AdminAreaController@children');
 	Route::resource('areas', 'AdminAreaController');
 
+	Route::resource('banners', 'AdminBannerController');
+
 
 	
 });

@@ -13,4 +13,8 @@ class Dict extends Model
     public function items(){
 		return $this->hasMany('App\DictItem');
 	}
+
+	public function scopeByName($query,$value){
+		return $query->where('code','=',$value)->firstOrFail();
+	}
 }

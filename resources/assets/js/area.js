@@ -82,7 +82,8 @@ new Vue({
 		addChild:function(area){
 			this.parent = area;
 			area.children = area.children||[];
-			var child = {id:-1,pid:area.id,names:'',names_en:'',sort:1};
+			var chileLevel = area.levels?area.levels + 1 : 1;
+			var child = {id:-1,pid:area.id,names:'',names_en:'',sort:1,levels:chileLevel};
 			this.area = child;
 			this.areaForm = $.extend({},child);
 		},

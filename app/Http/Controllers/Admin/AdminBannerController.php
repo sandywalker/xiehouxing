@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Area;
+use App\Banner;
+use App\Dict;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\BannerRequest;
 use Illuminate\Http\Request;
 
-class AdminAreaController extends Controller
+class AdminBannerController extends Controller
 {
+    
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,50 +21,43 @@ class AdminAreaController extends Controller
      */
     public function index()
     {
-       return Area::where('levels','=',1)->get();
-       // return Area::find(1)->children()->get();
+
+        return view('admin.banner.index')->with(['banners'=>Banner::all()]);
     }
 
-
-    public function main()
-    {
-        return view('admin.area.main');
-    }
-
-    public function children($id)
-    {
-        $area = Area::findOrFail($id);
-        return $area->children()->orderBy('sort')->get();
-    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $tags = Dict::byName('bannerTag')->items;
+        return view('admin.banner.create')->with(compact('tags'));
     }
 
     /**
-     * Store a newly created resource in storage.   
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BannerRequest $request)
     {
-        $data = $request->except(['id','created_at','updated_at']);
-        $area = Area::create($data); 
-        if ($area->pid == null){
-            $area->paths = ','.$area->levels.',';        
-        }else{
-            $parent = Area::findOrFail($area->pid);
-            $area->paths = $parent->paths.$area->id.',';    
-        }
-        $area->save();
-        return $area;
+        $banner =  Banner::create($request->all());
+        $file = $request->file('photo');
+        $filename = time().'.'.$file->getClientOriginalExtension();
+        $path = 'img/banners/';
+        $file->move($path,$filename);
+
+        $banner->path = $path.$filename;
+        list($width, $height) = getimagesize($banner->path);
+        $banner->width = $width;
+        $banner->height = $height;
+        $banner->save();
+        
+        return view('admin.banner.index');
     }
 
     /**
@@ -93,9 +91,7 @@ class AdminAreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $area = Area::findOrFail($id);
-        $area->update($request->except(['id','created_at','updated_at']));
-        return $area;
+        //
     }
 
     /**
@@ -106,6 +102,6 @@ class AdminAreaController extends Controller
      */
     public function destroy($id)
     {
-        Area::destroy($id);
+        //
     }
 }

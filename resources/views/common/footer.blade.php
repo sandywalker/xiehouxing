@@ -84,7 +84,7 @@
             <div class="col-xs-3">
 
                 <p class="text-center">
-                    <img  class="qrcode" src="img/qrcode.png" alt=""/>
+                    <img  class="qrcode" src="{{asset('img/qrcode.png')}}" alt=""/>
                 </p>
                 <p class="text-center"><strong>公众号</strong></p>
             </div>

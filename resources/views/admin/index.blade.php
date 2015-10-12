@@ -157,8 +157,8 @@
 			<li>
 				<h5><a href="#"><i class="glyphicon glyphicon-chevron-down pull-right"></i> 页面管理 </a></h5>
 				<ul>
-					<li><a href="#">横幅管理</a></li>
-					<li><a href="#">广告管理</a></li>
+					<li><a href="#banner" id="menu-banner" data-url="/admin/banners" >横幅管理</a></li>
+					<li><a href="#advert" id="menu-advert" data-url="/admin/adverts" >广告管理</a></li>
 				</ul>
 			</li>
 			<li>
@@ -183,7 +183,7 @@
 				<ul>
 					<li><a href="#user" id="menu-user" data-url="/admin/users/main">用户管理</a></li>
 					<li><a href="#dict" id="menu-dict" data-url="/admin/dicts/main">数据字典管理</a></li>
-					<li><a href="#">图片库管理</a></li>
+					{{-- <li><a href="#">图片库管理</a></li> --}}
 					<li><a href="#area" id="menu-area" data-url="/admin/areas/main">地区管理</a></li>
 				</ul>
 			</li>
