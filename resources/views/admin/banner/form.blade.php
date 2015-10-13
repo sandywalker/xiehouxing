@@ -3,42 +3,38 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<legend>添加横幅</legend>
+			<p>&nbsp;</p>
+			<legend>{{ $action}}横幅</legend>
+			 {!! Form::hidden('path') !!}
 			 <div class="form-group">
-				<label for="">  标签 <span class="text-danger">*</span> </label>
-				<select name="tag" id="tag" value="" class="form-control">
-					<option value="">请选择标签</option>
-					@foreach($tags as $tag)
-						<option value="{{$tag->value}}">{{$tag->name}}</option>
-					@endforeach
-				</select>
-			</div>
-			 <div class="form-group">
-				<label for="">  标题 <span class="text-danger">*</span> </label>
-				<input type="text" class="form-control" name="title" placeholder="标题">
+			 	{!!Form::label('title','标签')!!} <span class="text-danger">*</span>
+				{!!Form::select('tag',$tags,null,['class'=>'form-control'])!!}
 			</div>
 			<div class="form-group">
-				<label for="">描述</label>
-				<textarea class="form-control" name="description"></textarea>
+				{!!Form::label('title','标题')!!} <span class="text-danger">*</span>
+				{!!Form::text('title',null,['class'=>'form-control'])!!}
 			</div>
+			<div class="form-group">
+				{!!Form::label('description','描述')!!} 
+				{!!Form::textarea('description',null,['class'=>'form-control','rows'=>'3'])!!}
+			</div>
+			@if($action=='添加')
 			<div class="form-group">
 				<label for=""> 横幅图片 <span class="text-danger">*</span></label>
 				<input type="file" class="form-control" name="photo" placeholder="横幅图片">
 			</div>
+			@endif
 			 <div class="form-group">
-				<label for="">链接地址</label>
-				<input type="text" class="form-control" name="link" placeholder="链接地址">
+			 	{!!Form::label('link','链接地址')!!} 
+				{!!Form::text('link',null,['class'=>'form-control'])!!}
 			</div>
 			<div class="form-group">
-				<label for="">打开方式</label>
-				<select name="target" id="target" class="form-control">
-					<option value="_blank" selected="selected">新页面</option>
-					<option value="_self">本页面</option>
-				</select>
+				{!!Form::label('target','打开方式')!!} 
+				{!!Form::select('target',['_blank'=>'新页面','_self'=>'本页面'],'_blank',['class'=>'form-control'])!!}
 			</div>
 			 <div class="form-group">
-				<label for="">排序</label>
-				<input type="number" class="form-control" name="orders" placeholder="排序" value="1">
+			 	{!!Form::label('orders','排序')!!} 
+				{!!Form::input('number','orders',1,['class'=>'form-control'])!!}
 			</div>
 
 
@@ -49,7 +45,7 @@
 
 
 			<button type="submit" class="btn btn-primary">保存</button>&nbsp;&nbsp;
-			<button type="button" class="btn btn-default" onClick="history.back();">取消</button>
+			<a href="/admin/banners" class="btn btn-default">取消</a>
 
 			<p>
 			@include('error')

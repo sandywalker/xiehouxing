@@ -32,14 +32,22 @@
 								</div>	
 							</td>
 							<td> {{$banner->title }} <br> <span class="text-muted">{{$banner->description}}</span> </td>
-							<td>{{ $banner->tag }}</td>
-							<td>{{$banner->link}}</td>
+							<td> <span class="label label-success">{{ $banner->tag }}</span> </td>
+							<td>
+							  <a href="{{$banner->link}}" target="_blank">{{$banner->link}}</a> 
+							 </td>
 							<td>{{$banner->target}}</td>
 							<td>{{$banner->width.' x '.$banner->height}}</td>
 							<td>{{$banner->hits}}</td>
 							<td>{{$banner->orders}}</td>
 							<td>{{$banner->orders}}</td>
-							<td><button class="btn btn-info btn-sm">编辑</button> <button class="btn btn-danger btn-sm">删除</button></td>
+							<td>
+								<a href="/admin/banners/{{$banner->id}}/edit" class="btn btn-info btn-xs pull-left">编辑</a> 
+
+								{!! Form::model($banner,['url'=>'/admin/banners/'.$banner->id,'method'=>'DELETE','class'=>'pull-left']) !!}
+								&nbsp;<button type="submit" class="btn btn-danger btn-xs btn-remove">删除</buton>
+								{!! Form::close() !!}
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
@@ -54,5 +62,12 @@
 
 	<script>
 			$('.banner-thumb').magnificPopup({type:'image'});
+
+			$('.btn-remove').on('click',function(e){
+				if (confirm('您确定删除这条数据吗?')){
+					return true;
+				}
+				return false;
+			});
 	</script>
 @endsection

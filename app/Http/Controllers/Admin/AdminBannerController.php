@@ -6,6 +6,7 @@ use App\Banner;
 use App\Dict;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\BannerEditRequest;
 use App\Http\Requests\BannerRequest;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,7 @@ class AdminBannerController extends Controller
      */
     public function create(Request $request)
     {
-        $tags = Dict::byName('bannerTag')->items;
+        $tags = $this->getTags();
         return view('admin.banner.create')->with(compact('tags'));
     }
 
@@ -57,7 +58,7 @@ class AdminBannerController extends Controller
         $banner->height = $height;
         $banner->save();
         
-        return view('admin.banner.index');
+        return redirect('/admin/banners');
     }
 
     /**
@@ -79,7 +80,9 @@ class AdminBannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        $tags = $this->getTags();
+        return view('admin.banner.edit')->with(compact('banner','tags'));
     }
 
     /**
@@ -89,9 +92,11 @@ class AdminBannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BannerEditRequest $request, $id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        $banner->update($request->all());
+        return redirect('/admin/banners');
     }
 
     /**
@@ -102,6 +107,16 @@ class AdminBannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        if (file_exists($banner->path)){
+            unlink($banner->path);
+        }
+        Banner::destroy($id);   
+        return redirect('/admin/banners');
+    }
+
+    private function getTags()
+    {
+        return Dict::byName('bannerTag')->items->lists('name','value');
     }
 }

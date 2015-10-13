@@ -3,13 +3,15 @@
 
 
 @section('content')
-<form action="/admin/banners" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+{!! Form::open(['url'=>'/admin/banners','enctype'=>'multipart/form-data']) !!}
+{{-- <form action="/admin/banners" method="POST" enctype="multipart/form-data"> --}}
+
 			    
-@include('admin.banner.form')
+@include('admin.banner.form',['action'=>'添加'])
 			
 
-</form>	
+{!! Form::close() !!}
+{{-- </form>	 --}}
 
 @endsection
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class BannerRequest extends Request
+class BannerEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class BannerRequest extends Request
         return [
             'title' => 'required',
             'tag' => 'required',
-            'photo' => 'required | image',
             'link' => 'url',
             'orders' => 'integer'
         ];
@@ -37,7 +36,6 @@ class BannerRequest extends Request
         return[
             'title' => '标题',
             'tag' => '标签',
-            'photo' => '图片',
             'link' => '链接',
             'orders' =>'排序'
         ];
