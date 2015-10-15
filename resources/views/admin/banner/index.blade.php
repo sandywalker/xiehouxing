@@ -17,7 +17,7 @@
 							<th>链接</th>
 							<th width="80">打开方式</th>
 							<th width="120">宽高</th>
-							<th width="80">点击次数</th>
+							<th width="60">点击</th>
 							<th width="60">排序</th>
 							<th width="60">状态</th>
 							<th width="120">操作</th>
@@ -40,7 +40,9 @@
 							<td>{{$banner->width.' x '.$banner->height}}</td>
 							<td>{{$banner->hits}}</td>
 							<td>{{$banner->orders}}</td>
-							<td>{{$banner->orders}}</td>
+							<td>
+							   @include('wedgits.states',['states'=>$banner->states])
+							 </td>
 							<td>
 								<a href="/admin/banners/{{$banner->id}}/edit" class="btn btn-info btn-xs pull-left">编辑</a> 
 

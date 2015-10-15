@@ -172,7 +172,7 @@
 			<li>
 				<h5><a href="#"> <i class="glyphicon glyphicon-chevron-down pull-right"></i> 攻略游记</a></h5>
 				<ul>
-					<li><a href="#">攻略管理</a></li>
+					<li><a href="#guide" id="menu-guide" data-url="/admin/guides" >攻略管理</a></li>
 					<li><a href="#">攻略评论管理</a></li>
 					<li><a href="#">游记管理</a></li>
 					<li><a href="#">游记评论管理</a></li>

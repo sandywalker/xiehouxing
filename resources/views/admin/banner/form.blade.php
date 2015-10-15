@@ -5,9 +5,8 @@
 		<div class="col-md-8 col-md-offset-2">
 			<p>&nbsp;</p>
 			<legend>{{ $action}}横幅</legend>
-			 {!! Form::hidden('path') !!}
 			 <div class="form-group">
-			 	{!!Form::label('title','标签')!!} <span class="text-danger">*</span>
+			 	{!!Form::label('tag','标签')!!} <span class="text-danger">*</span>
 				{!!Form::select('tag',$tags,null,['class'=>'form-control'])!!}
 			</div>
 			<div class="form-group">

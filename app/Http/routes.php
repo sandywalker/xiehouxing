@@ -52,6 +52,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 
 	Route::resource('banners', 'AdminBannerController');
 
+	Route::resource('adverts', 'AdminAdvertController');
+
+	Route::resource('guides', 'AdminGuideController');
+
+
 
 	
 });

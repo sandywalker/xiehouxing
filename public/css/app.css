@@ -1,6 +1,9 @@
 .text-main {
   color: #00a7cf; }
 
+.inblock {
+  display: inline-block; }
+
 .modal-header {
   background: #f2f2f2; }
 

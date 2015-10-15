@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class BannerEditRequest extends Request
+class GuideRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,19 +25,22 @@ class BannerEditRequest extends Request
     {
         return [
             'title' => 'required',
-            'tag' => 'required',
-            'link' => 'url',
-            'orders' => 'integer'
+            'types' => 'required',
+            'area' => 'required',
+            'thumb' => 'required|image',
+            'content' => 'required'
+            
         ];
     }
 
-    public function attributes()
+     public function attributes()
     {
         return[
             'title' => '标题',
-            'tag' => '标签',
-            'link' => '链接',
-            'orders' =>'排序'
+            'types' => '类型',
+            'area' => '地区',
+            'content' => '内容',
+            'thumb' =>'预览图'
         ];
 
     }

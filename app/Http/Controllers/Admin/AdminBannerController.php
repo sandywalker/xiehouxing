@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Requests\BannerEditRequest;
 use App\Http\Requests\BannerRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminBannerController extends Controller
 {
@@ -92,7 +93,7 @@ class AdminBannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BannerEditRequest $request, $id)
+    public function update(BannerRequest $request, $id)
     {
         $banner = Banner::findOrFail($id);
         $banner->update($request->all());
