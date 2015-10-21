@@ -15,9 +15,25 @@ class AdminGuideController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.guide.index')->with(['guides'=>Guide::all()]);
+        $key = '';
+        if ($request->has('key')){
+            $key = $request->input('key');
+            $query = Guide::where('title','like','%'.$key.'%')->orWhere('area','like','%'.$key.'%');
+        }else{
+            $query = Guide::select();
+        }
+        $guides = $query->orderBy('orders','asc')->orderBy('id','desc')->paginate(20);    
+
+        return view('admin.guide.index',compact('key','guides'));
+    }
+
+    public function guideComments($id)
+    {
+        $guide = Guide::findOrFail($id);
+        $guide->load('comments.user');
+        return $guide->comments;
     }
 
     /**
@@ -38,7 +54,13 @@ class AdminGuideController extends Controller
      */
     public function store(GuideRequest $request)
     {
-        Guide::create($request->all());
+
+        $guide =  Guide::create($request->all());
+        
+        $thumb = $request->file('thumb');
+        $bannerThumb = $request->file('banner_thumb');
+        $guide->saveThumbs($thumb,$bannerThumb);
+
         return redirect('/admin/guides');
     }
 
@@ -77,7 +99,10 @@ class AdminGuideController extends Controller
     {
         $guide = Guide::findOrFail($id);
         $guide->update($request->all());
-        return redirect('/admin/guides');
+        $thumb = $request->file('thumb');
+        $bannerThumb = $request->file('banner_thumb');
+        $guide->saveThumbs($thumb,$bannerThumb);
+        return redirect($request->input('redirect_to'));
     }
 
     /**
@@ -89,6 +114,6 @@ class AdminGuideController extends Controller
     public function destroy($id)
     {
         Guide::destroy($id);
-        return redirect('/admin/guides');
+        return redirect($request->input('redirect_to'));
     }
 }

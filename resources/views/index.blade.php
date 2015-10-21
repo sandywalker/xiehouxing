@@ -1,5 +1,5 @@
 @extends('def')
-
+@section('id','home')
 @section('content')
     
     		<section id="carousel-example-generic" class="carousel slide" data-ride="carousel">

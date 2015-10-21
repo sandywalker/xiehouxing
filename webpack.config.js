@@ -2,7 +2,8 @@ module.exports = {
     entry: {
         dict:"./resources/assets/js/dict.js",
         user:"./resources/assets/js/user.js",
-        area:"./resources/assets/js/area.js"
+        area:"./resources/assets/js/area.js",
+        guide:"./resources/assets/js/guide.js"
     },
     output: {
         path: __dirname+ '/public/js',

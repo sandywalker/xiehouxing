@@ -19,9 +19,9 @@
 	            
 
 	            <ul class="nav navbar-nav">
-	                <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+	                <li class="menu-home"><a href="/">首页 <span class="sr-only">(current)</span></a></li>
 	                <li><a href="product-list.html">活动报名</a></li>
-	                <li><a href="guide-list.html">攻略</a></li>
+	                <li class="menu-guide"><a href="/guides">攻略</a></li>
 	                <li><a href="note-list.html">游记</a></li>
 	                <li><a href="forum.html">邂逅广场</a></li>
 	            </ul>
@@ -34,6 +34,7 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 欢迎：{{ Auth::user()->name }} <span class="caret"></span></a>
 			          <ul class="dropdown-menu">
+			          	<li><a href="/u/{{Auth::user()->id}}">我的空间</a></li>
 			            <li><a href="/auth/logout">退出</a></li>
 			          </ul>
 			        </li>

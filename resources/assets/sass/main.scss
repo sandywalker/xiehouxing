@@ -8,6 +8,7 @@ body{
     text-align: right;
 }
 
+
 .home{
     //background:#f2f2f2;
     //background: -webkit-linear-gradient(90deg, #DAD299 10%, #B0DAB9 90%); /* Chrome 10+, Saf5.1+ */
@@ -968,6 +969,9 @@ footer{
         &:before { right: 1.5%; }
         &:after { left: 1.5%; }
     }
+    .best-guides{
+        margin-bottom:15px;
+    }
     .thumb-md{
         .thumb-title{
             position: absolute;
@@ -1055,6 +1059,7 @@ footer{
 
 }
 
+
 .guide-main{
 
     article{
@@ -1087,9 +1092,7 @@ footer{
         h5{
             color:$orange;
         }
-        p{
-            color:#999;
-        }
+       
     }
     .username{
         font-size:12px;
@@ -1105,6 +1108,8 @@ footer{
 
 
 }
+
+
 
 
 .note-list-title{
@@ -1580,6 +1585,68 @@ footer{
     .container-register{
         margin:150px auto;
     }
+}
+
+
+/*------------------------------- comments ---------------------------*/
+
+
+.comments{
+    
+    .comment-head{
+        line-height: 50px;
+        border-bottom: 1px solid #ddd;
+    }
+    .media{
+        border-bottom:1px solid #eee;
+    }
+
+    .media-body p{
+        color:#aaa;
+        line-height:40px;
+    }
+}
+
+
+/*----------------------------- share ----------------------------*/
+
+.share-bar{
+    height:50px;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    .share-icon{
+        height:50px;
+        line-height: 50px;
+        padding:0 30px;
+        float:right;
+        border-left:1px solid #eee;
+        background-image:url('../img/icons.png');
+        background-repeat:no-repeat;
+    }
+    .share-caption{
+        float:right;
+        height:50px;
+        line-height: 50px;
+    }
+
+    .share-weixin{
+        background-position:15px -195px;
+    }
+
+    .share-weibo{
+        background-position:-64px -195px;
+    }
+    &:after{
+        content:"";
+        clear:both;
+    }
+}
+
+
+#home  li.menu-home>a,
+#guide  li.menu-guide>a{
+    color: $nav-active;
+    background: $nav-activebg;   
 }
 
 

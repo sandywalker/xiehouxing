@@ -30,6 +30,12 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // 	});  
 // });
 
+Route::get('/u/{id}','SpaceController@home');
+
+Route::get('guides','GuideController@index');
+Route::get('guides/{id}','GuideController@show');
+Route::post('guides/{id}/comments','GuideController@storeComments');
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'], function()  
 {
 	Route::get('/', 'AdminHomeController@index');
@@ -54,7 +60,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 
 	Route::resource('adverts', 'AdminAdvertController');
 
+
+
+	Route::resource('guides/{id}/comments', 'AdminGuideController@guideComments');
 	Route::resource('guides', 'AdminGuideController');
+
+	Route::resource('gcomments/{id}/setbest', 'AdminGuideCommentController@setBest');
+	Route::resource('gcomments', 'AdminGuideCommentController');
 
 
 

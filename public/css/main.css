@@ -2,6 +2,36 @@
 .text-main {
   color: #00a7cf; }
 
+.text-orange {
+  color: #ff980a; }
+
+.text-gray {
+  color: #ddd; }
+
+.text-sm {
+  font-size: 12px; }
+
+.text-md {
+  font-size: 14px; }
+
+.text-lg {
+  font-size: 18px; }
+
+.thumb-image img,
+.thumb-image {
+  width: 100%; }
+
+.thumb-sm {
+  width: 64px;
+  height: 64px; }
+
+.thumb-round {
+  border-radius: 50%; }
+
+.thumb-xs {
+  width: 48px;
+  height: 48px; }
+
 body {
   font-family: 'Avenir Next','Helvetica Neue',Avenir,Helvetica,'Lantinghei SC','Hiragino Sans GB','Microsoft YaHei',sans-serif !important; }
 
@@ -705,6 +735,9 @@ footer {
   .guide-list .guide-list-title:after {
     left: 1.5%; }
 
+.guide-list .best-guides {
+  margin-bottom: 15px; }
+
 .guide-list .thumb-md .thumb-title {
   position: absolute;
   left: 10px;
@@ -793,8 +826,6 @@ footer {
   line-height: 18px; }
   .guide-main .media-body h5 {
     color: #ff980a; }
-  .guide-main .media-body p {
-    color: #999; }
 
 .guide-main .username {
   font-size: 12px;
@@ -1135,6 +1166,48 @@ footer {
   background: url(../img/login-bg.jpg); }
   #register .container-register {
     margin: 150px auto; }
+
+/*------------------------------- comments ---------------------------*/
+.comments .comment-head {
+  line-height: 50px;
+  border-bottom: 1px solid #ddd; }
+
+.comments .media {
+  border-bottom: 1px solid #eee; }
+
+.comments .media-body p {
+  color: #aaa;
+  line-height: 40px; }
+
+/*----------------------------- share ----------------------------*/
+.share-bar {
+  height: 50px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee; }
+  .share-bar .share-icon {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    float: right;
+    border-left: 1px solid #eee;
+    background-image: url("../img/icons.png");
+    background-repeat: no-repeat; }
+  .share-bar .share-caption {
+    float: right;
+    height: 50px;
+    line-height: 50px; }
+  .share-bar .share-weixin {
+    background-position: 15px -195px; }
+  .share-bar .share-weibo {
+    background-position: -64px -195px; }
+  .share-bar:after {
+    content: "";
+    clear: both; }
+
+#home li.menu-home > a,
+#guide li.menu-guide > a {
+  color: #fff;
+  background: #00a7cf; }
 
 @media (max-width: 990px) {
   .home-side {

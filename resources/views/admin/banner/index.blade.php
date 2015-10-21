@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h5 class="app-title"> 横幅管理 </h5>
+	<h5 class="app-title"> 图片链接管理 </h5>
 
 	<div class="container-fluid" id="bannerApp">
 		<div class="row">
@@ -20,7 +20,7 @@
 							<th width="60">点击</th>
 							<th width="60">排序</th>
 							<th width="60">状态</th>
-							<th width="120">操作</th>
+							<th width="120">操作</th>  
 						</tr>
 					</thead>
 					<tbody>

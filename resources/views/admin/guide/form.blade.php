@@ -38,7 +38,7 @@
 			</div>
 			<div class="form-group">
 				{!!Form::label('description','简介')!!} 
-				{!!Form::textarea('description',null,['class'=>'form-control','rows'=>'2'])!!}
+				{!!Form::textarea('description',null,['class'=>'form-control','rows'=>'5'])!!}
 			</div>
 
 
@@ -58,6 +58,10 @@
 			 	{!!Form::label('isbest','是否精华')!!} <span class="text-danger">*</span>
 				{!!Form::select('isbest',['0'=>'否','1'=>'是'],null,['class'=>'form-control'])!!}
 			</div>
+			<div class="form-group">
+			 	{!!Form::label('istop','是否首页')!!} <span class="text-danger">*</span>
+				{!!Form::select('istop',['0'=>'否','1'=>'是'],null,['class'=>'form-control'])!!}
+			</div>
 
 			<div class="form-group">
 			 	{!!Form::label('orders','排序')!!} 
@@ -74,7 +78,7 @@
 				<script id="container" name="content" type="text/plain" style="min-height:500px;"></script>
 			</div>
 			<button type="submit" class="btn btn-primary">保存</button>&nbsp;&nbsp;
-			<a href="/admin/guides" class="btn btn-default">取消</a>
+			<a href="{{URL::previous()}}" class="btn btn-default">取消</a>
 
 
 		</div>

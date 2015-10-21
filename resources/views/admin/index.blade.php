@@ -157,7 +157,7 @@
 			<li>
 				<h5><a href="#"><i class="glyphicon glyphicon-chevron-down pull-right"></i> 页面管理 </a></h5>
 				<ul>
-					<li><a href="#banner" id="menu-banner" data-url="/admin/banners" >横幅管理</a></li>
+					<li><a href="#banner" id="menu-banner" data-url="/admin/banners" >图片链接管理</a></li>
 					<li><a href="#advert" id="menu-advert" data-url="/admin/adverts" >广告管理</a></li>
 				</ul>
 			</li>
@@ -173,7 +173,7 @@
 				<h5><a href="#"> <i class="glyphicon glyphicon-chevron-down pull-right"></i> 攻略游记</a></h5>
 				<ul>
 					<li><a href="#guide" id="menu-guide" data-url="/admin/guides" >攻略管理</a></li>
-					<li><a href="#">攻略评论管理</a></li>
+					<li><a href="#gcomment" id="menu-gcomment" data-url="/admin/gcomments" >攻略评论管理</a></li>
 					<li><a href="#">游记管理</a></li>
 					<li><a href="#">游记评论管理</a></li>
 				</ul>

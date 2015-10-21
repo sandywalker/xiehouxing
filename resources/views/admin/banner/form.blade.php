@@ -19,7 +19,7 @@
 			</div>
 			@if($action=='添加')
 			<div class="form-group">
-				<label for=""> 横幅图片 <span class="text-danger">*</span></label>
+				<label for=""> 图片 <span class="text-danger">*</span></label>
 				<input type="file" class="form-control" name="photo" placeholder="横幅图片">
 			</div>
 			@endif

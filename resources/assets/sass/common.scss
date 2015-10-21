@@ -21,3 +21,40 @@ $red-color:#e00;
 .text-main{
 	color:$main-color;
 }
+
+.text-orange{
+	color:$orange;
+}
+
+.text-gray{
+	color:#ddd;
+}
+
+.text-sm{
+   font-size:12px;
+}
+.text-md{
+	font-size:14px;
+}
+.text-lg{
+	font-size:18px;
+}
+
+.thumb-image img,
+.thumb-image{
+	width:100%;
+}
+
+.thumb-sm{
+   width:64px;
+   height:64px;
+}
+
+.thumb-round{
+	border-radius:50%;
+}
+
+.thumb-xs{
+	width:48px;
+	height:48px;
+}

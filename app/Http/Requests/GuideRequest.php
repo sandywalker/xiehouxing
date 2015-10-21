@@ -27,9 +27,8 @@ class GuideRequest extends Request
             'title' => 'required',
             'types' => 'required',
             'area' => 'required',
-            'thumb' => 'required|image',
+            'thumb' => 'required_without:id|image',
             'content' => 'required'
-            
         ];
     }
 
