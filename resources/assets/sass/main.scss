@@ -101,9 +101,7 @@ dl.list-condense a,dl.list-mini a{
     padding: 0 3px;
 }
 
-img.full-width{
-    width:100%;
-}
+
 
 .adv{
     img{
@@ -1648,6 +1646,12 @@ footer{
     color: $nav-active;
     background: $nav-activebg;   
 }
+
+@import "space";
+
+
+
+
 
 
 

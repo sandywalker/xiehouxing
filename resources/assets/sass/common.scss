@@ -18,12 +18,23 @@ $girl-color:#fa7fb6;
 $red-color:#e00;
 
 
+.margin0{
+	margin:0;
+}
+
+img.full-width{
+    width:100%;
+}
 .text-main{
 	color:$main-color;
 }
 
 .text-orange{
 	color:$orange;
+}
+
+.text-red{
+	color:#e00;
 }
 
 .text-gray{
@@ -45,6 +56,11 @@ $red-color:#e00;
 	width:100%;
 }
 
+.thumb-lg{
+   width:128px;
+   height:128px;
+}
+
 .thumb-sm{
    width:64px;
    height:64px;
@@ -58,3 +74,8 @@ $red-color:#e00;
 	width:48px;
 	height:48px;
 }
+.thumb-xxs{
+	width:32px;
+	height:32px;
+}
+

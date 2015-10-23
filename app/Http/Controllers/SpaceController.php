@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SpaceController extends Controller
 {
@@ -15,7 +17,12 @@ class SpaceController extends Controller
      */
     public function home($id)
     {
-        return view('space.index');
+    	$user = User::findOrFail($id);
+    	$isme = Auth::check()&&Auth::user()->id == $id;
+    	$fans =  array_slice(Auth::user()->fans(),0,5);
+    	$followings = array_slice(Auth::user()->following(),0,5);
+
+        return view('space.index',compact('user','isme','fans','followings'));
     }
   
 }

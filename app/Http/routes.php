@@ -32,6 +32,18 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/u/{id}','SpaceController@home');
 
+Route::group(['middleware' => 'user'],function(){
+	Route::get('/settings','SettingController@index');
+	Route::get('/settings/styles','SettingController@styles');
+	Route::post('/settings/styles','SettingController@updateStyles');
+	Route::get('/settings/likes','SettingController@likes');
+	Route::get('/settings/security','SettingController@security');
+	Route::post('/settings/cpass','SettingController@changePassword');
+	Route::post('/settings/{id}','SettingController@update');
+
+});
+
+
 Route::get('guides','GuideController@index');
 Route::get('guides/{id}','GuideController@show');
 Route::post('guides/{id}/comments','GuideController@storeComments');
