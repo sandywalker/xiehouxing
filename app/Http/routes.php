@@ -31,6 +31,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // });
 
 Route::get('/u/{id}','SpaceController@home');
+Route::get('/u/{id}/notes','SpaceController@notes');
 
 Route::group(['middleware' => 'user'],function(){
 	Route::get('/settings','SettingController@index');
@@ -40,6 +41,8 @@ Route::group(['middleware' => 'user'],function(){
 	Route::get('/settings/security','SettingController@security');
 	Route::post('/settings/cpass','SettingController@changePassword');
 	Route::post('/settings/{id}','SettingController@update');
+
+	Route::resource('notes','NoteController');
 
 });
 

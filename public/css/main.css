@@ -2,6 +2,15 @@
 .margin0 {
   margin: 0; }
 
+.pad0 {
+  padding: 0; }
+
+.bg-white {
+  background: white; }
+
+a.link-orange, a.link-orange:visited {
+  color: #ff980a; }
+
 img.full-width {
   width: 100%; }
 
@@ -1223,6 +1232,21 @@ footer {
   color: #fff;
   background: #00a7cf; }
 
+.panel-login {
+  border: none;
+  height: 400px; }
+  .panel-login .panel-heading {
+    height: 60px;
+    line-height: 60px;
+    padding: 0;
+    text-align: center;
+    color: white;
+    background: #ff980a;
+    font-size: 18px;
+    border: none; }
+  .panel-login .login-account {
+    border-right: 1px solid #ddd; }
+
 /*----------------------------- space ----------------------------*/
 label {
   color: #999; }
@@ -1325,6 +1349,10 @@ label {
   .space-main .settings-file {
     width: 300px;
     margin: 0 auto; }
+  .space-main .notes-title {
+    margin-top: 0; }
+  .space-main .notes-description {
+    height: 50px; }
 
 @media (max-width: 990px) {
   .home-side {

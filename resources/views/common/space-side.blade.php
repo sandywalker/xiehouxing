@@ -7,7 +7,7 @@
 				<tr>
 					<td><strong class="text-lg">{{count($followings)}}</strong><br>关注</td>
 					<td><strong class="text-lg">{{count($fans)}}</strong><br>粉丝</td>
-					<td><strong class="text-lg">2</strong><br>游记</td>
+					<td><strong class="text-lg">{{$noteCount}}</strong><br>游记</td>
 				</tr>
 			</tbody>
 		</table>

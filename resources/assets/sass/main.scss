@@ -1647,6 +1647,25 @@ footer{
     background: $nav-activebg;   
 }
 
+.panel-login{
+    border:none;
+    height:400px;
+    .panel-heading{
+        height: 60px;
+        line-height: 60px;
+        padding:0;
+        text-align: center;
+        color:white;
+        background: $orange;//#105a84;
+        font-size:18px;
+        border:none;
+    }
+    .login-account{
+        border-right:1px solid #ddd;
+    }
+}
+
+
 @import "space";
 
 

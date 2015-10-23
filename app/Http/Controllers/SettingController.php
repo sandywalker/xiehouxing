@@ -9,6 +9,7 @@ use App\Http\Requests\UserFileRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
@@ -89,7 +90,7 @@ class SettingController extends Controller
         if ($avatar!=null){
             $user->removeAvatar();
             $avatarname = time().'.'.$avatar->getClientOriginalExtension();
-            $avatarpath = 'img/user/avatars/';
+            $avatarpath = Config::get('consts.avatar_root');
             $avatar->move($avatarpath,$avatarname);
 
             Image::make($avatarpath.$avatarname)->fit(200)->save();
@@ -98,7 +99,7 @@ class SettingController extends Controller
         if ($photo!=null){
              $user->removeBanner();
              $photoname = time().'.'.$photo->getClientOriginalExtension();
-             $path = 'img/user/banners/';
+             $path = Config::get('consts.user_banner_root');
              $photo->move($path,$photoname); 
 
              $user->banner = $path.$photoname;    

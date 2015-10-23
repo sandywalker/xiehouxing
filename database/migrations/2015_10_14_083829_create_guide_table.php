@@ -29,7 +29,7 @@ class CreateGuideTable extends Migration
             $table->integer('cmts')->unsigned()->default(0);    
             $table->integer('isbest')->unsigned()->default(0);  
             $table->integer('orders')->unsigned()->default(1);  
-            $table->string('creator')->nullable();
+            $table->integer('creator')->unsigned()->nullable();
 
             $table->timestamps();
         });
