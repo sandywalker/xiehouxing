@@ -42,6 +42,9 @@ Route::group(['middleware' => 'user'],function(){
 	Route::post('/settings/cpass','SettingController@changePassword');
 	Route::post('/settings/{id}','SettingController@update');
 
+	Route::get('/notes/notes','NoteController@notes');
+	Route::get('/notes/{id}/delete','NoteController@delete');
+	Route::post('notes/{id}/comments','NoteController@storeComments');
 	Route::resource('notes','NoteController');
 
 });

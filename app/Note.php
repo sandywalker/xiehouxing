@@ -11,6 +11,14 @@ class Note extends Model
 
 	private $root = 'img/notes/';
 
+	public function comments(){
+		return $this->hasMany('App\NoteComment');
+	}
+
+	public function scopeTopNotes($query){
+		return $query->where('istop',1)->where('states',1);
+	}
+
     public function getCreatedAtAttribute($value){
 		return  $value?Carbon::parse($value)->format('Y-m-d'):'';
 	}
@@ -29,6 +37,7 @@ class Note extends Model
     		}
 	    	$thumbname = $time.'.'.$thumb->getClientOriginalExtension();
 	        $thumb->move($root,$thumbname);
+
 	        $this->thumb = $root.$thumbname;
     	}
         $this->save();

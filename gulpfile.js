@@ -25,6 +25,9 @@ elixir(function(mix) {
              'libs/html5shiv.min.js',
              'libs/respond.min.js',
           ], './public/js/shims.js')
+        .scripts([
+             'main.js',
+          ], './public/js/main.js')
          .styles([
              'libs/bootstrap.min.css',
              'libs/select2.css',

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>邂逅行 @yield('title') </title>
+	<title>邂逅行 － @yield('title') </title>
 
 	
 	<link href="{{ asset('/css/libs.css') }}" rel="stylesheet">
@@ -30,6 +30,7 @@
 
 	
 	<script src="{{ asset('/js/libs.js') }}"></script>
+	<script src="{{ asset('/js/main.js') }}"></script>
 	@yield('js')
 
 </body>

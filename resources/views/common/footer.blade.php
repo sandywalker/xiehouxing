@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-3">
                 <div class="text-right">
-                    <a target="_blank" class="plc" href="http://about.58.com/fqz/index.html?utm_source=market&amp;spm=b-31580022738699-pe-f-829.hao360_101&amp;qq-pf-to=pcqq.group"><img src="http://img1.lotour.com/home/plc.png"></a>
+                    <a target="_blank" class="plc" href="#"><img src="{{asset('img/plc.png')}}"></a>
                 </div>
 
             </div>

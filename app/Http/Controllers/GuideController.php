@@ -7,7 +7,7 @@ use App\Guide;
 use App\GuideComment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Http\Requests\GuideCommentRequest;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,7 +32,7 @@ class GuideController extends Controller
        return view('guide.show',compact('guide'));
     }
 
-    public function storeComments(GuideCommentRequest $request,$id)
+    public function storeComments(CommentRequest $request,$id)
     {
     	$comment = new GuideComment;
     	$comment->user_id = Auth::user()->id;

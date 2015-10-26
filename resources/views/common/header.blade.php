@@ -20,10 +20,10 @@
 
 	            <ul class="nav navbar-nav">
 	                <li class="menu-home"><a href="/">首页 <span class="sr-only">(current)</span></a></li>
-	                <li><a href="product-list.html">活动报名</a></li>
+	                <li><a href="#">活动报名</a></li>
 	                <li class="menu-guide"><a href="/guides">攻略</a></li>
-	                <li><a href="note-list.html">游记</a></li>
-	                <li><a href="forum.html">邂逅广场</a></li>
+	                <li class="menu-note"><a href="/notes">游记</a></li>
+	                <li><a href="#">邂逅广场</a></li>
 	            </ul>
 
 				 <ul class="nav navbar-nav navbar-right navbar-user">

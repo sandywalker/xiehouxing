@@ -40,7 +40,7 @@
 				{!!Form::text('tags',null,['class'=>'form-control'])!!}
 			</div> --}}
 			<div class="form-group">
-				{!!Form::label('thumb','预览图')!!}  <span class="text-danger">*</span>
+				{!!Form::label('thumb','预览图')!!}  
 				{!!Form::input('file','thumb',null,['class'=>'form-control'])!!}
 			</div>
 

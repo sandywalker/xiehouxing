@@ -25,7 +25,7 @@
 				<div class="col-md-4"> <div class="hot-nav">
 					<p><i class="glyphicon glyphicon-globe hot-nav-icon" ></i></p>
 					<p class="text-muted">看看攻略，找找灵感！</p>
-					<a href="" class="btn btn-warning "> <i class="glyphicon glyphicon-eye-open"></i> 看攻略</a> 
+					<a href="/guides" target="_blank" class="btn btn-warning "> <i class="glyphicon glyphicon-eye-open"></i> 看攻略</a> 
 					</div></div>
 				<div class="col-md-4"> 
 					<div class="hot-nav last">
@@ -41,10 +41,6 @@
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我的游记</h4>
 			@include('space.note-list')
 			
-			
-			
-
-
 
 			<p>&nbsp;</p>
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我的点评</h4>

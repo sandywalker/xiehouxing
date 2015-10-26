@@ -1,4 +1,6 @@
-@extends('app')
+@extends('def')
+
+@section('id','space')
 @section('css')
 	<style>
 		.note-thumbs{
@@ -16,21 +18,19 @@
 
 
 @section('content')
+@include('common.space-banner')
 {!! Form::model($note,['method'=>'PUT','url'=>'/notes/'.$note->id,'enctype'=>'multipart/form-data']) !!}
 {{-- <form action="/admin/notes" method="POST" enctype="multipart/form-data"> --}}
 <br>
 <div class="container note-thumbs">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-3 col-md-offset-4">
 		   <p class="text-center"> <img src="{{asset($note->thumb)}}" alt="" > <br>预览图</p></div>
-		<div class="col-md-9">
-			<p class="text-center"><img src="{{asset($note->banner_thumb)}}" alt="" ><br>顶部大图</p>
-		</div>
 	</div>
 </div>
 {!! Form::hidden('id') !!}	
 {!! Form::hidden('redirect_to', URL::previous()) !!}
-@include('admin.note.form',['action'=>'编辑'])
+@include('notes.form',['action'=>'编辑'])
 			
 
 {!! Form::close() !!}

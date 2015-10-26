@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\CommentRequest;
 use App\Http\Requests\NoteRequest;
 use App\Note;
+use App\NoteComment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class NoteController extends Controller
 {
@@ -18,7 +22,14 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $topNotes = Note::topNotes()->get()->slice(0,4);
+        return view('notes.index',compact('topNotes'));
+    }
+
+    public function notes()
+    {
+        $notes = Note::where('states',1)->orderBy('id','desc')->paginate(24);
+        return view('notes.notes',compact('notes'));
     }
 
     /**
@@ -57,7 +68,12 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $user = User::findOrFail($note->creator);
+        $isme = Auth::check()&&Auth::user()->id == $user->id;
+        $noteCount = Note::where('creator',$id)->count();   
+
+        return view('notes.show',compact('note','user','isme','noteCount'));
     }
 
     /**
@@ -68,7 +84,12 @@ class NoteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        $user = Auth::user();
+        
+        if ($this->canUpdate($note)){
+            return view('notes.edit',compact('note','user'));
+        }
     }
 
     /**
@@ -78,9 +99,19 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoteRequest $request, $id)
     {
-        //
+        $note = Note::findOrFail($id);
+         if ($this->canUpdate($note)){
+            $note->update($request->all());
+            $note->updateDescription();
+            $thumb = $request->file('thumb');
+            if ($thumb!=null){
+                $note->saveThumb($thumb);
+            }
+            $note->save();
+            return redirect($request->input('redirect_to'));
+        }
     }
 
     /**
@@ -92,5 +123,31 @@ class NoteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        $note = Note::findOrFail($id);
+        
+        if ($this->canUpdate($note)){
+            Note::destroy($id);  
+        }
+        return redirect(URL::previous());
+    }
+
+    public function storeComments(CommentRequest $request,$id)
+    {
+        $comment = new NoteComment;
+        $comment->user_id = Auth::user()->id;
+        $comment->content = $request->input('content');
+        $comment->note_id = $id;
+        $comment->save();
+        return redirect('notes/'.$id.'#comments');
+    }
+
+    private function canUpdate($note)
+    {
+        $user = Auth::user();
+        return $user->id == $note->creator;
     }
 }
