@@ -27,7 +27,7 @@
                             <p class="summary"> {{$tnote->place}}</p>
                         </div>
                     </div>
-                @endforeach    
+                @endforeach
         </div>
     </section>
 
@@ -46,7 +46,7 @@
     <section class="container note-list">
         <div class="row">
             <div class="col-md-12 section-title">
-                <h3 class="note-list-title">目的地 </h3>
+                <h3 class="note-list-title">目的地</h3>
             </div>
         </div>
         <div class="row">
@@ -69,7 +69,7 @@
                 <div class="clearfix"></div>
                 <p>&nbsp;</p> 
                 <div class="text-center">
-                        <a href="#" id="btnMoreNotes" class="btn btn-lg btn-info" >更多游记...</a>
+                        <a href="#" id="btnMoreNotes" class="btn btn-lg btn-info" >显示更多...</a>
                 </div>
 
             </div>

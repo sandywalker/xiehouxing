@@ -17,7 +17,7 @@
 			  <div class="form-group">
 			    <label for="name" class="col-sm-2 control-label">昵称:</label>
 			    <div class="col-sm-10  col-md-4">
-			      <input type="text" class="form-control" id="name"  value="{{$user->name}}" placeholder="">
+			      <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}" placeholder="">
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -44,6 +44,12 @@
 			    <label for="occupation" class="col-sm-2 control-label">行业:</label>
 			    <div class="col-sm-10 col-md-4">
 			      <input type="text" class="form-control" id="occupation" name="occupation" value="{{$user->occupation}}">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="occupation" class="col-sm-2 control-label">微信:</label>
+			    <div class="col-sm-10 col-md-4">
+			      <input type="text" class="form-control" id="wechat" name="wechat" value="{{$user->wechat}}">
 			    </div>
 			  </div>
 			  <div class="form-group">

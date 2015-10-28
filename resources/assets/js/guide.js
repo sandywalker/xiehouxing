@@ -12,7 +12,7 @@ new Vue({
 		show:false
 	},
 	components:{
-		'guide-comments-modal':require('./components/guide-comments-modal.vue')
+		'guide-comments-modal':require('./components/comments-modal.vue')
 	},
 	methods:{
 		showComments:function(id){

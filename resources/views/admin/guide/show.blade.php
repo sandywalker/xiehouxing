@@ -17,10 +17,10 @@
 		<div class="col-md-7">
 			<article>
 				<h2>
-                            <small class="pull-right">
+                            {{-- <small class="pull-right">
                                 <a href="#" class="btn btn-lg"><i class="glyphicon glyphicon-star "></i>收藏</a>
                                 <a href="#" class="btn btn-lg"><i class="glyphicon glyphicon-share"></i>分享</a>
-                            </small>
+                            </small> --}}
                             {{$guide->title}}
 				</h2>
 				{!! $guide->content !!}			

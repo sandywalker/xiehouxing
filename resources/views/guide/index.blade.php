@@ -1,75 +1,19 @@
 @extends('def')
 
 @section('id','guide')
+@section('title','攻略')
 @section('content')
 
- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
+@include('guide.slider')
+<p>&nbsp;</p>
 
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="img/slide8.jpg" alt="..." class="full-width">
-                                <div class="carousel-caption">
-                                    <h2>背上行囊去旅行</h2>
-                                    <p>每个人都有一个梦想，去看尽世间的美景。</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img src="img/slide7.jpg" alt="..." class="full-width">
-                                <div class="carousel-caption">
-                                    <h2>阅尽千帆，才了解旅行</h2>
-                                    <p>旅行有时候也是一种心情的释放，迫切的想要出去透透气。</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img src="img/slide6.jpg" alt="..." class="full-width">
-                                <div class="carousel-caption">
-                                    <h2>与海的亲密接触</h2>
-                                    <p>旅行需要更随自己的心意、喜欢哪里就在哪里多呆一会。</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="icon icon-arrow-left" aria-hidden="true"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="icon icon-arrow-right" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <p>&nbsp;</p>
-
-<section class="container guide-search">
-            <div class="row">
-                <div class="col-md-3">&nbsp;</div>
-                <div class="col-md-6">
-                    <form class="" role="search">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control input-lg"   placeholder="输入想去的地方...">
-                                  <span class="input-group-btn">
-                                    <button class="btn btn-lg btn-default btn-info" type="button" ><i class="glyphicon glyphicon-search"></i></button>
-                                  </span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-3">&nbsp;</div>
-            </div>
-        </section>
+@include('guide.query')
 
 
         <section class="container guide-list">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="guide-list-title">最热国内攻略</h2>
+                    <h2 class="guide-list-title"><a href="/guides/list?types=0">最热国内攻略</a></h2>
                 </div>
             </div>
             <div class="row">
@@ -97,6 +41,11 @@
 
             	@endforeach
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center"><a href="/guides/list?types=0" class="link-main">更多攻略...</a></p>
+                </div>
+            </div>
         </section>
 
     <br/>
@@ -112,7 +61,7 @@
         <section class="container guide-list">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="guide-list-title">最热国际攻略</h2>
+                    <h2 class="guide-list-title"><a href="/guides/list?types=1">最热国际攻略</a></h2>
                 </div>
             </div>
             <div class="row">
@@ -140,6 +89,11 @@
 
             	@endforeach
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center"><a href="/guides/list?types=1" class="link-main">更多攻略...</a></p>
+                </div>
+            </div>
         </section>
 
         <section class="container guide-list">
@@ -158,10 +112,16 @@
             			            		</div>
             			            	</div>
             			            	<div class="col-md-9">
-            			            		<h4 ><a href="/guides/{{$guide->id}}" target="_blank"><strong class="text-main">{{$guide->title}}</strong></a> 	</h4>
+            			            		<h4 >
+                                                <span class="pull-right text-sm text-gray">
+                                                    <i class="glyphicon glyphicon-map-marker"></i> <span class="text-orange">{{$guide->place}} </span>  &nbsp;&nbsp;
+                                                </span>
+                                                <a href="/guides/{{$guide->id}}" target="_blank" class="link-main"><strong>{{$guide->title}}</strong></a> 	
+                                            </h4>
             			            		<p class="text-muted">
             			            			{{$guide->description}}
             			            		</p>
+                                            <p class="text-sm">@include('wedgits.social-info',['entry'=>$guide])</p>
             			            	</div>
             			            </div>
             		            @endforeach

@@ -7,6 +7,7 @@ use App\GuideComment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class AdminGuideCommentController extends Controller
 {
@@ -24,7 +25,7 @@ class AdminGuideCommentController extends Controller
         }else{
             $query = GuideComment::select();
         }
-        $comments = $query->orderBy('guide_id','asc')->orderBy('id','asc')->with('guide','user')->paginate(20);
+        $comments = $query->orderBy('guide_id','asc')->orderBy('id','desc')->with('guide','user')->paginate(20);
         return view('admin.guide.comments',compact('key','comments'));
     }
 
@@ -33,7 +34,7 @@ class AdminGuideCommentController extends Controller
         $comment = GuideComment::findOrFail($id);
         $comment->isbest = $request->input('value');
         $comment->save();
-        return redirect('/admin/gcomments');
+        return redirect(URL::previous());
     }
 
     /**

@@ -27,6 +27,24 @@ class Note extends Model
 		return $value==null?'img/no-thumb.jpg':$value;
 	}
 
+
+	public static function updateCommentCount($note){
+		$note->cmts = $note->comments !=null ? $note->comments->count(): 0;
+		$note->save();
+	}
+
+	public function updateLikes()
+    {
+        $this->likes = NoteLike::where('note_id',$this->id)->count();
+        $this->save();
+    }
+
+	 public function incHits()
+    {
+        $this->hits +=1;
+        $this->save();
+    }
+
 	public function saveThumb($thumb)
     {
     	$root = $this->root;

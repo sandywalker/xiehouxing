@@ -13,11 +13,20 @@
 		<article class="col-md-9">
 			<h3>{{$note->title}}</h3>
 			<p class="text-muted">
-				<span class="pull-right text-muted">
-									<i class="glyphicon glyphicon-eye-open text-main"></i> {{$note->hits}} &nbsp; 
-									<i class="glyphicon glyphicon-comment text-main"></i> {{$note->cmts}} &nbsp;
-									<i class="glyphicon glyphicon-thumbs-up text-main"></i> {{$note->likes}}
-								</span>
+				<span class="pull-right social-actions">
+                        <span class="text-orange"> 浏览&nbsp; <span class="hits"> {{$note->hits}}</span></span>&nbsp;&nbsp;
+                        
+                        <a href="#" class="@if(Auth::check()) btn-like @endif" 
+                            data-target="note" data-action="like" data-id="{{$note->id}}">
+                            @if($liked)
+                                <i class="glyphicon glyphicon-heart icon-like"></i>
+                            @else
+                                <i class="glyphicon glyphicon-heart-empty icon-like"></i>
+                            @endif   
+                            赞&nbsp;
+                            <span class="likes">{{$note->likes}}</span> 
+                        </a>
+                    </span>
 				<span class="text-orange"> <i class="glyphicon glyphicon-map-marker"></i>  {{$note->place}}</span> {{$note->created_at}}  &nbsp;&nbsp;
 			</p>
 			<div class="divider"></div>
@@ -49,7 +58,7 @@
 				        <p class="text-center text-muted">您好，<a href="/auth/login">登录</a>后就可以留言啦！</p>
 				    </div>
 				@else
-
+					<p>&nbsp;</p>
 				    <form action="/notes/{{$note->id}}/comments" method="POST" id="commentForm">
 				     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				    <div class="row">

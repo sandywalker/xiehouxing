@@ -32,6 +32,10 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/u/{id}','SpaceController@home');
 Route::get('/u/{id}/notes','SpaceController@notes');
+Route::get('/u/{id}/favs','SpaceController@favs');
+Route::get('/notes/notes','NoteController@notes');
+
+
 
 Route::group(['middleware' => 'user'],function(){
 	Route::get('/settings','SettingController@index');
@@ -42,17 +46,34 @@ Route::group(['middleware' => 'user'],function(){
 	Route::post('/settings/cpass','SettingController@changePassword');
 	Route::post('/settings/{id}','SettingController@update');
 
-	Route::get('/notes/notes','NoteController@notes');
+	
 	Route::get('/notes/{id}/delete','NoteController@delete');
 	Route::post('notes/{id}/comments','NoteController@storeComments');
-	Route::resource('notes','NoteController');
+	Route::resource('notes','NoteController',['except' => ['index','show']]);
+
+
+	Route::get('/fav/guide/{id}/fav','FavController@favGuide');
+	Route::get('/fav/guide/{id}/unFav','FavController@unFavGuide');
+
+	Route::get('/like/guide/{id}/like','LikeController@likeGuide');
+	//Route::get('/like/guide/{id}/unLike','LikeController@unLikeGuide');
+
+	Route::get('/like/note/{id}/like','LikeController@likeNote');
+
+	Route::get('/social/{fId}/follow/{id}','SocialController@follow');
+	Route::get('/social/{fId}/unfollow/{id}','SocialController@unFollow');
 
 });
+Route::get('/notes','NoteController@index');
+Route::get('/notes/{id}','NoteController@show');
+
 
 
 Route::get('guides','GuideController@index');
+Route::get('guides/list','GuideController@lists');
 Route::get('guides/{id}','GuideController@show');
 Route::post('guides/{id}/comments','GuideController@storeComments');
+
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'], function()  
 {
@@ -79,12 +100,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::resource('adverts', 'AdminAdvertController');
 
 
-
-	Route::resource('guides/{id}/comments', 'AdminGuideController@guideComments');
+	Route::get('guides/{id}/comments', 'AdminGuideController@guideComments');
 	Route::resource('guides', 'AdminGuideController');
+
 
 	Route::resource('gcomments/{id}/setbest', 'AdminGuideCommentController@setBest');
 	Route::resource('gcomments', 'AdminGuideCommentController');
+
+	Route::get('cnotes/{id}/{result}','AdminNoteController@checkNote');
+	Route::get('cnotes','AdminNoteController@checkNotes');
+	Route::get('notes/{id}/top/{result}', 'AdminNoteController@setTop');
+	Route::get('notes/{id}/comments', 'AdminNoteController@noteComments');
+	Route::get('notes/{id}/{result}','AdminNoteController@changeStates');
+	Route::get('notes','AdminNoteController@index');
+
+	Route::resource('ncomments/{id}/setbest', 'AdminNoteCommentController@setBest');
+	Route::resource('ncomments', 'AdminNoteCommentController');
 
 
 

@@ -569,15 +569,34 @@ footer{
     }
 }
 
+.social-actions{
+    font-size:14px;
+    a{
+        color:$orange;
+        &:hover{
+            color:$main-color;
+            text-decoration: none;
+        }
+    }
+    .favs,
+    .likes,
+    .hits{
+        color:#aaa;
+    }
+}
+
+.social-infos{
+    color:#ccc;
+}
 
 
-@import("product")
+@import "product";
 
-@import("guide")
+@import "guide" ;
 
-@import("notes")
+@import "notes";
 
-@import("forum")
+@import "forum";
 
 /*---------------------------------   login and register pages ------------------------------*/
 

@@ -8,6 +8,7 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Requests\NoteRequest;
 use App\Note;
 use App\NoteComment;
+use App\NoteLike;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,10 +71,10 @@ class NoteController extends Controller
     {
         $note = Note::findOrFail($id);
         $user = User::findOrFail($note->creator);
-        $isme = Auth::check()&&Auth::user()->id == $user->id;
-        $noteCount = Note::where('creator',$id)->count();   
+        $liked =  Auth::check()&&NoteLike::exists(Auth::user()->id,$note->id);
+        $note->incHits();
 
-        return view('notes.show',compact('note','user','isme','noteCount'));
+        return view('notes.show',compact('note','user','liked'));
     }
 
     /**
@@ -137,11 +138,13 @@ class NoteController extends Controller
 
     public function storeComments(CommentRequest $request,$id)
     {
+        $note = Note::findOrFail($id);   
         $comment = new NoteComment;
         $comment->user_id = Auth::user()->id;
         $comment->content = $request->input('content');
         $comment->note_id = $id;
         $comment->save();
+        Note::updateCommentCount($note);
         return redirect('notes/'.$id.'#comments');
     }
 

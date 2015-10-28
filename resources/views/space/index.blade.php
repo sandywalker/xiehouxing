@@ -13,7 +13,7 @@
 		<article class="col-md-9">
 			<p>&nbsp;</p>
 			<br>	
-			@if($isme)
+			@if($user->isme())
 			<div class="row text-center">
 				<div class="col-md-4"> 
 					<div class="hot-nav"> 
@@ -45,13 +45,13 @@
 			<p>&nbsp;</p>
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我的点评</h4>
 			<div class=" well-space  text-center text-muted">
-				潜水中，还没有点评！@if($isme) 去逛逛，用你的旅行经验去<a href="#">帮助</a> 更多人吧！  @endif
+				潜水中，还没有点评！@if($user->isme()) 去逛逛，用你的旅行经验去<a href="#">帮助</a> 更多人吧！  @endif
 			</div>
 			<p>&nbsp;</p>
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我参加的活动</h4>
 			
 			<div class=" well-space  text-center text-muted">
-				还没有参加活动！@if($isme) 去看看有没有喜欢的  <a href="#">活动</a> ！  @endif
+				还没有参加活动！@if($user->isme()) 去看看有没有喜欢的  <a href="#">活动</a> ！  @endif
 			</div>
 			<p>&nbsp;</p>
 		</article>

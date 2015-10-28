@@ -7,12 +7,17 @@
 	<div class="container-fluid" id="guideApp">
 		<div class="row">
 			<div class="col-md-12">
-				<p>
+				<ul class="nav nav-tabs">
+					  <li @if($isbest==1) class="active" @endif><a href="/admin/guides?isbest=1">精华</a></li>
+					  <li @if($isbest==0) class="active" @endif><a href="/admin/guides?isbest=0">普通</a></li>
+				</ul>
+				<p class="">
 					<form action="/admin/guides" class="form-inline pull-right" >
+						<input type="hidden" name="isbest" value="{{$isbest}}">
 						<input type="text" name="key" class="form-control" value="{{$key}}">
 						 <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
 					</form>
-					<a href="/admin/guides/create" class="btn btn-info"> + 添加 </a>
+					<a href="/admin/guides/create" class="btn btn-info "> + 添加 </a>
 				</p>
 				<table class="table table-bordered">
 					<thead>
@@ -83,7 +88,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				{!! $guides->render() !!}
+				{!! $guides->appends(['isbest'=>$isbest,'key'=>$key])->render() !!}
 
 			</div>
 		</div>

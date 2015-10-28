@@ -11,6 +11,15 @@
 a.link-orange, a.link-orange:visited {
   color: #ff980a; }
 
+a.link-red, a.link-red:visited {
+  color: #e00; }
+
+a.link-main, a.link-main:visited {
+  color: #00a7cf; }
+
+a.link-main:hover {
+  color: #ff980a; }
+
 img.full-width {
   width: 100%; }
 
@@ -448,6 +457,21 @@ footer {
       height: 50px;
       border-radius: 50%; }
 
+.social-actions {
+  font-size: 14px; }
+  .social-actions a {
+    color: #ff980a; }
+    .social-actions a:hover {
+      color: #00a7cf;
+      text-decoration: none; }
+  .social-actions .favs,
+  .social-actions .likes,
+  .social-actions .hits {
+    color: #aaa; }
+
+.social-infos {
+  color: #ccc; }
+
 /*======================================= product-list ==============================================*/
 .product-filters {
   margin: 30px 0;
@@ -745,7 +769,13 @@ footer {
   margin-bottom: 25px;
   display: table;
   white-space: nowrap;
-  padding: 0 15px; }
+  padding: 0 15px;
+  width: 100%; }
+  .guide-list .guide-list-title a {
+    color: #ff980a; }
+    .guide-list .guide-list-title a:hover {
+      color: #00a7cf;
+      text-decoration: none; }
   .guide-list .guide-list-title:before, .guide-list .guide-list-title:after {
     border-top: 2px solid #00a7cf;
     content: '';
@@ -908,7 +938,7 @@ footer {
   line-height: 38px;
   color: #aaa; }
   .subject-container .item-footer a {
-    color: #ff980a; }
+    color: #aaa; }
   .subject-container .item-footer a:hover {
     color: #ee0000; }
 

@@ -1,16 +1,38 @@
+@inject('usrv','App\Services\UserService')
+<?php 
+	$followings = $usrv->following($user); 
+	$fans = $usrv->fans($user); 
+	$isme = $user->isme();
+	$followFlag = $usrv->followFlag($user);
+?>
+
 <aside class="col-md-3">
-		<img src="{{asset($user->avatar)}}" class="avatar" alt="">
+		<a href="/u/{{$user->id}}" target="_blank"><img src="{{asset($user->avatar)}}" class="avatar" alt=""></a>
 		<p class="text-center  "> <span class="label label-warning">VIP</span> <strong>{{$user->name}} </strong> &nbsp;&nbsp;</p>
 		<p class="text-center">等级：<strong class="text-red">Level {{$user->levels+1}}</strong> ｜ 现居： {{$user->address}}</p>
 		<table class="table table-bordered table-social-stat">
 			<tbody>
 				<tr>
-					<td><strong class="text-lg">{{count($followings)}}</strong><br>关注</td>
-					<td><strong class="text-lg">{{count($fans)}}</strong><br>粉丝</td>
-					<td><strong class="text-lg">{{$noteCount}}</strong><br>游记</td>
+					<td><strong class="text-lg">{{$usrv->followingCount($user)}}</strong><br>关注</td>
+					<td><strong class="text-lg">{{$usrv->fansCount($user)}}</strong><br>粉丝</td>
+					<td><strong class="text-lg">{{$usrv->noteCount($user)}}</strong><br>游记</td>
 				</tr>
 			</tbody>
 		</table>
+		
+		@if($followFlag!=null)
+		<p>
+			@if($followFlag=='follow')
+				<a href="/social/{{Auth::user()->id}}/follow/{{$user->id}}" class="btn btn-sm btn-default btn-block"> 
+					<span class="text-orange"><i class="glyphicon glyphicon-plus"></i> 加关注</span>
+				</a>
+			@else
+				<a href="/social/{{Auth::user()->id}}/unfollow/{{$user->id}}" class="btn btn-sm btn-default btn-block"> 
+				   <span class="text-main"><i class="glyphicon glyphicon-minus"></i> 取消关注</span> 
+				</a>
+			@endif
+		</p>
+		@endif
 		
 		<h5><strong>我关注的</strong></h5>
 		@if(count($followings)>0)

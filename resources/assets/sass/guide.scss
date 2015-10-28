@@ -8,6 +8,14 @@
         display: table;
         white-space: nowrap;
         padding:0 15px;
+        width:100%;
+        a{
+            color:$orange;
+            &:hover{
+                color:$main-color;
+                text-decoration: none;
+            }
+        }
         &:before, &:after {
             border-top: 2px solid $main-color;
             content: '';

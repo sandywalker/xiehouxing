@@ -18,15 +18,24 @@ class AdminGuideController extends Controller
     public function index(Request $request)
     {
         $key = '';
+        $isbest = $request->input('isbest',1);
         if ($request->has('key')){
             $key = $request->input('key');
             $query = Guide::where('title','like','%'.$key.'%')->orWhere('area','like','%'.$key.'%');
         }else{
             $query = Guide::select();
         }
-        $guides = $query->orderBy('orders','asc')->orderBy('id','desc')->paginate(20);    
+        $query->where('isbest',$isbest);
+        if ($isbest == 1)
+        {
+            $query->orderBy('orders','asc');
+        }else
+        {
+            $query->orderBy('id','desc');
+        }
+        $guides = $query->paginate(20);    
 
-        return view('admin.guide.index',compact('key','guides'));
+        return view('admin.guide.index',compact('key','guides','isbest'));
     }
 
     public function guideComments($id)

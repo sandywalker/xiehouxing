@@ -27,7 +27,7 @@
 				<tbody>
 					@foreach($comments as $comment)
 						<tr>
-							<td class="text-info">{{$comment->guide->title}}</td>
+							<td class="text-info"><a href="/guides/{{$comment->guide->id}}" target="_blank">{{$comment->guide->title}}</a></td>
 							<td>
 								
 								<span>{{$comment->title}}</span> 
@@ -65,6 +65,7 @@
 					@endforeach
 				</tbody>
 			</table>
+			{!! $comments->appends(['key'=>$key])->render() !!}
 		</div>
 	</div>
 </div>

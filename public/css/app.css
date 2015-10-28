@@ -10,6 +10,15 @@
 a.link-orange, a.link-orange:visited {
   color: #ff980a; }
 
+a.link-red, a.link-red:visited {
+  color: #e00; }
+
+a.link-main, a.link-main:visited {
+  color: #00a7cf; }
+
+a.link-main:hover {
+  color: #ff980a; }
+
 img.full-width {
   width: 100%; }
 

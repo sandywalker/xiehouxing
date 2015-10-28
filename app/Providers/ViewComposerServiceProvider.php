@@ -38,9 +38,10 @@ class ViewComposerServiceProvider extends ServiceProvider
 
     public function composeSpaceSide(){
         view()->composer('common.space-side', function($view){
-                $fans =  array_slice(Auth::user()->fans(),0,5);
-                $followings = array_slice(Auth::user()->following(),0,5);
-                $view->with(compact('fans','followings'));
+                // $fans =  array_slice(Auth::user()->fans(),0,5);
+                // $followings = array_slice(Auth::user()->following(),0,5);
+                // $view->with(compact('fans','followings'));
+                return $view;
         });
     } 
 }

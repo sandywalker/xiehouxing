@@ -7,7 +7,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on="click:close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">攻略评论</h4>
+        <h4 class="modal-title">评论</h4>
       </div>
 
       <div class="modal-body">
@@ -30,7 +30,7 @@
          		</tr>
          	</tbody>
          </table>
-         <p class="text-center text-muted" v-show="!comments.length">该攻略暂时没有评论！</p>
+         <p class="text-center text-muted" v-show="!comments.length">暂时没有评论！</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" v-on="click:close">关闭</button>

@@ -1,7 +1,7 @@
 @extends('def')
 
 @section('id','guide')
-@section('title','攻略')
+@section('title',$guide->title)
 @section('content')
 
 <div class="guide-banner">
@@ -18,13 +18,33 @@
 		<div class="col-md-7">
 			<article>
 				<h2>
-                            <small class="pull-right">
-                                <a href="#" class="btn btn-lg"><i class="glyphicon glyphicon-star "></i>收藏</a>
-                                <a href="#" class="btn btn-lg"><i class="glyphicon glyphicon-share"></i>分享</a>
-                            </small>
-                            {{$guide->title}}
+                    <span class="pull-right social-actions">
+                        <span class="text-orange">  浏览&nbsp; <span class="hits"> {{$guide->hits}}</span></span>&nbsp;&nbsp;
+                        <a href="#" class="@if(Auth::check()) btn-fav @endif" 
+                            data-target="guide" data-action="fav" data-id="{{$guide->id}}" >
+                            @if($faved)
+                                <i class="glyphicon glyphicon-star icon-fav"></i>
+                            @else
+                                <i class="glyphicon glyphicon-star-empty icon-fav"></i>
+                            @endif   
+                            收藏&nbsp;
+                            <span class="favs">{{$guide->favs}}</span>
+                        </a> 
+                        &nbsp;&nbsp;
+                        <a href="#" class="@if(Auth::check()) btn-like @endif" 
+                            data-target="guide" data-action="like" data-id="{{$guide->id}}">
+                            @if($liked)
+                                <i class="glyphicon glyphicon-heart icon-like"></i>
+                            @else
+                                <i class="glyphicon glyphicon-heart-empty icon-like"></i>
+                            @endif   
+                            赞&nbsp;
+                            <span class="likes">{{$guide->likes}}</span> 
+                        </a>
+                    </span>
+                    {{$guide->title}}
 				</h2>
-				{!! $guide->content !!}			
+				{!! $guide->content !!}
 
 			</article>
             @include('wedgits.share-bar')

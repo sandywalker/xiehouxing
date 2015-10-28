@@ -174,8 +174,9 @@
 				<ul>
 					<li><a href="#guide" id="menu-guide" data-url="/admin/guides" >攻略管理</a></li>
 					<li><a href="#gcomment" id="menu-gcomment" data-url="/admin/gcomments" >攻略评论管理</a></li>
-					<li><a href="#">游记管理</a></li>
-					<li><a href="#">游记评论管理</a></li>
+					<li><a href="#cnote" id="menu-cnote" data-url="/admin/cnotes" >游记审核</a></li>
+					<li><a href="#note" id="menu-note" data-url="/admin/notes" >游记管理</a></li>
+					<li><a href="#ncomment" id="menu-ncomment" data-url="/admin/ncomments" >游记评论管理</a></li>
 				</ul>
 			</li>
 			<li>

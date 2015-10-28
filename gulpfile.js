@@ -19,7 +19,8 @@ elixir(function(mix) {
              'libs/bootstrap.min.js',
              'libs/vue.min.js',
              'libs/select2.min.js',
-             'libs/jquery.magnific-popup.min.js'
+             'libs/jquery.magnific-popup.min.js',
+             'libs/sweetalert.min.js',
           ], './public/js/libs.js')
         .scripts([
              'libs/html5shiv.min.js',
@@ -32,6 +33,7 @@ elixir(function(mix) {
              'libs/bootstrap.min.css',
              'libs/select2.css',
              'libs/magnific-popup.css',
+             'libs/sweetalert.css'
          ], './public/css/libs.css')
          .copy('resources/assets/fonts', 'public/fonts');
 

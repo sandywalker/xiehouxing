@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class User extends Model implements AuthenticatableContract,
@@ -34,7 +35,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name','username', 'email', 'password','address','sex','birth','occupation','description','avatar','banner'];
+    protected $fillable = ['name','username', 'email','wechat', 'password','address','sex','birth','occupation','description','avatar','banner'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -88,15 +89,18 @@ class User extends Model implements AuthenticatableContract,
         }    
     }
 
-    public function fans(){
-        return DB::table('users')
-                    ->join('user_relations','users.id','=','user_relations.follower_id')
-                    ->where('user_relations.user_id','=',$this->id)->get();
+    public function topFans($count)
+    {
+        return array_slice($this->fans(),0,$count);
     }
 
-    public function following(){
-        return DB::table('users')
-                    ->join('user_relations','users.id','=','user_relations.user_id')
-                    ->where('user_relations.follower_id','=',$this->id)->get();   
+     public function topFollowing($count)
+    {
+        return array_slice($this->following(),0,$count);
+    }
+
+    public function isme()
+    {
+        return Auth::check()&&Auth::user()->id == $this->id;
     }
 }

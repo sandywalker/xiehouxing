@@ -11,7 +11,7 @@
 								<span class="pull-right text-sm text-muted">
 									<i class="glyphicon glyphicon-eye-open text-main"></i> {{$note->hits}} &nbsp; 
 									<i class="glyphicon glyphicon-comment text-main"></i> {{$note->cmts}} &nbsp;
-									<i class="glyphicon glyphicon-thumbs-up text-main"></i> {{$note->likes}}
+									<i class="glyphicon glyphicon-heart text-main"></i> {{$note->likes}}
 								</span>
 								
 								<a href="/notes/{{$note->id}}" target="_blank" class="link-orange"><strong>{{$note->title}}</strong></a>
@@ -23,7 +23,7 @@
 								<span class="pull-right text-orange"> <i class="glyphicon glyphicon-map-marker"></i> 
 								{{$note->place}} &nbsp;&nbsp;
 								{{$note->created_at}}</span>
-								@if($isme)
+								@if($user->isme())
 								<span class="pull-left">
 									<a href="/notes/{{$note->id}}/edit">编辑</a> &nbsp;|&nbsp; 
 									<a href="/notes/{{$note->id}}/delete" class="btn-remove">
