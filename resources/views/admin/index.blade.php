@@ -143,6 +143,7 @@
 							<div class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
+									<li><a href="{{ url('/') }}">网站首页</a></li>
 									<li><a href="{{ url('/auth/logout') }}">退出系统</a></li>
 								</ul>
 							</div>

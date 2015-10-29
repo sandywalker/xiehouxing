@@ -20,7 +20,7 @@
                     <div class="col-md-3  col-xs-6 ">
                         <div class="travel-notes">
                             <div class="travel-notes-border"></div>
-                            <div class="avatar"><img src="/img/avatar1.jpg" alt=""></div>
+                            <div class="avatar"><img src="{{asset($tnote->user->avatar)}}" alt=""></div>
                             <a href="/notes/{{$tnote->id}}" target="_blank"><img src="{{asset($tnote->thumb)}}" alt=""></a>
                             <h5>{{$tnote->title}}</h5>
                             <p class="summary"><span>{{$tnote->created_at}}</span> &nbsp;&nbsp; <span> {{$tnote->hits}} 次浏览</span></p>

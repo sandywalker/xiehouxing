@@ -11,10 +11,10 @@
         <p class="subject-title"><a href="#"> <span class="text-main"> [{{$note->place}}]</span> {{$note->title}}  </a></p>
         <div class="item-footer">
             <div class="pull-right">
-                <a href="#"><i class="glyphicon glyphicon-heart"></i></a> 122 &nbsp;&nbsp;&nbsp;
-                <a href="#"><i class="glyphicon glyphicon-comment"></i></a> 1&nbsp;&nbsp;&nbsp;
+                <a href="#"><i class="glyphicon glyphicon-heart"></i></a> {{$note->hits}} &nbsp;&nbsp;&nbsp;
+                <a href="#"><i class="glyphicon glyphicon-comment"></i></a> {{$note->cmts}}&nbsp;&nbsp;&nbsp;
             </div>
-            <div class=" item-avatar"><img src="/img/avatar1.jpg" alt=""> 快乐的雨</div>
+            <div class=" item-avatar"><img src="{{asset($note->user->avatar)}}" alt=""> {{$note->user->name}}</div>
         </div>
     </div>
 

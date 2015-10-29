@@ -23,13 +23,13 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $topNotes = Note::topNotes()->get()->slice(0,4);
+        $topNotes = Note::topNotes()->with('user')->get()->slice(0,4);
         return view('notes.index',compact('topNotes'));
     }
 
     public function notes()
     {
-        $notes = Note::where('states',1)->orderBy('id','desc')->paginate(24);
+        $notes = Note::where('states',1)->orderBy('id','desc')->with('user')->paginate(24);
         return view('notes.notes',compact('notes'));
     }
 

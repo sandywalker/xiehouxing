@@ -11,6 +11,11 @@ class Note extends Model
 
 	private $root = 'img/notes/';
 
+	public function user()
+	{
+		return $this->belongsTo('App\User','creator');
+	}
+
 	public function comments(){
 		return $this->hasMany('App\NoteComment');
 	}
