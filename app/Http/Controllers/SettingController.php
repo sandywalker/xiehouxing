@@ -86,7 +86,7 @@ class SettingController extends Controller
 
     private function updatePhotos($photo,$avatar)
     {
-        $user = Auth::user();
+        $user = User::findOrFail(Auth::user()->id);
         if ($avatar!=null){
             $user->removeAvatar();
             $avatarname = time().'.'.$avatar->getClientOriginalExtension();

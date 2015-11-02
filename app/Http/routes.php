@@ -117,7 +117,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::resource('ncomments/{id}/setbest', 'AdminNoteCommentController@setBest');
 	Route::resource('ncomments', 'AdminNoteCommentController');
 
+	Route::resource('products', 'AdminProductController');
 
 
-	
 });

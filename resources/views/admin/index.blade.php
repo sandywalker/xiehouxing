@@ -163,11 +163,12 @@
 				</ul>
 			</li>
 			<li>
-				<h5><a href="#"> <i class="glyphicon glyphicon-chevron-down pull-right"></i> 活动产品</a></h5>
+				<h5><a href="#"> <i class="glyphicon glyphicon-chevron-down pull-right"></i> 产品活动</a></h5>
 				<ul>
+					<li><a href="#product" id="menu-product" data-url="/admin/products" >产品管理</a></li>
 					<li><a href="#">活动管理</a></li>
-					<li><a href="#">订单管理</a></li>
 					<li><a href="#">活动评论管理</a></li>
+					<li><a href="#">订单管理</a></li>
 				</ul>
 			</li>
 			<li>
