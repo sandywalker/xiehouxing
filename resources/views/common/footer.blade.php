@@ -61,8 +61,8 @@
             </div>
             <div class="col-md-6">
                 <div >
-                    <p>  京公网安备：110105001213<br>
-                        Copyright © 2012 - 2015 <a href="http://www.xiehouxing.com/" target="_blank">xiehouxing.com</a> All Rights Reserved. <a href="http://www.xiehouxing.com/" target="_blank" title="邂逅行旅游网" >邂逅行旅游网</a> 版权所有</p>
+                    <p>  京ICP备15039616号－1<br>
+                        Copyright © 2014 - 2015 <a href="http://www.xiehouxing.com/" target="_blank">xiehouxing.com</a> All Rights Reserved. <a href="http://www.xiehouxing.com/" target="_blank" title="邂逅行旅游网" >邂逅行旅游网</a> 版权所有</p>
                 </div>
 
             </div>
@@ -78,8 +78,8 @@
     <div class="container foot-mobile">
         <div class="row">
             <div class="col-xs-9">
-                <p class="copyright">  京公网安备：110105001213<br>
-                    Copyright © 2012 - 2015 <a href="http://www.xiehouxing.com/" target="_blank">xiehouxing.com</a> All Rights Reserved. <a href="http://www.xiehouxing.com/" target="_blank" title="邂逅行旅游网" >邂逅行旅游网</a> 版权所有</p>
+                <p class="copyright">  京ICP备15039616号－1<br>
+                    Copyright © 2014 - 2015 <a href="http://www.xiehouxing.com/" target="_blank">xiehouxing.com</a> All Rights Reserved. <a href="http://www.xiehouxing.com/" target="_blank" title="邂逅行旅游网" >邂逅行旅游网</a> 版权所有</p>
             </div>
             <div class="col-xs-3">
 
