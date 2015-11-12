@@ -6,3 +6,8 @@ Homestead.json
 .idea
 /ftplogs
 /public/ueditor/php/upload/
+/public/public/
+/public/img/banners/
+/public/img/guides/
+/public/img/notes/
+/public/img/activities/

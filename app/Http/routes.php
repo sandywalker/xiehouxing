@@ -36,6 +36,9 @@ Route::get('/u/{id}/favs','SpaceController@favs');
 Route::get('/notes/notes','NoteController@notes');
 
 
+Route::get('/activities/{id}','ActivityController@show');
+
+
 
 Route::group(['middleware' => 'user'],function(){
 	Route::get('/settings','SettingController@index');
@@ -118,6 +121,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::resource('ncomments', 'AdminNoteCommentController');
 
 	Route::resource('products', 'AdminProductController');
+
+	Route::get('activities/select/products','AdminActivityController@selectProducts');
+	Route::resource('activities', 'AdminActivityController');
+
 
 
 });

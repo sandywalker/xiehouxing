@@ -1,0 +1,199 @@
+.home-activity-item{
+    position:relative;
+    background:#f5f5f5;
+    border-radius:5px;
+    margin-bottom: 30px;
+
+    .calendar{
+            position:absolute;
+            top:10px;
+            left:10px;
+            z-index: 999;
+    }
+    .tag{
+        position:absolute;
+        top:260px;
+        left:50%;
+        margin-left:-40px;
+        border-radius:50%;
+        text-align: center;
+        width:80px;
+        height:80px;
+        background:$orange;
+        color:#fff;
+        line-height: 80px;
+        font-size:18px;
+        z-index: 999;
+        @include opacity(0.8);
+    }
+    .tag-jh{
+        background:$main-color;
+    }
+    .thumb-cover{
+        height:300px;
+        overflow: hidden;
+        margin-bottom: 50px;
+        img{
+            width:100%;
+            border-radius:5px;
+        }
+    }
+    .hover-zoom-in{
+        &:hover{
+            border-top-left-radius:5px;
+            border-top-right-radius:5px;
+        }
+    }
+    .thumb-info{
+        height:80px;
+    }
+    h3{
+        text-align: center;
+        font-size:18px;
+        overflow: hidden;
+    }
+    p{
+        font-size: 12px;
+        color:#999;
+        text-align: center;
+    }
+
+}
+
+.home-guide{
+
+}
+
+.home-thumb-guide{
+    margin-bottom: 20px;
+    border-radius:5px;
+    overflow: hidden;
+    
+    
+    .thumb-image{
+        background:#333;
+        height:240px;
+        overflow:hidden;
+        position: relative;
+
+        .thumb-title{
+            position: absolute;
+            left:10px;
+            bottom:10px;
+            font-size:26px;
+            color:#fff;
+            text-shadow: #333333 1px 1px 1px ;
+        }
+        .social-infos{
+            position:absolute;
+            bottom:20px;
+            color:#fff;
+            right:10px;
+            font-size:12px;
+            visibility: hidden;
+        }
+        .thumb-mask{
+            position:absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            height:60px;
+            background:#000;
+            -webkit-transition: opacity .5s ease 0s;
+            transition: opacity .5s ease 0s;
+            text-shadow: 0 1px 2px rgba(0,0,0,.3);
+            @include opacity(0);
+        }
+    }
+    &:hover{
+        background:#f2f2f2;
+        .social-infos{
+            visibility: visible;
+        }
+        .thumb-mask{
+            @include opacity(0.5);
+        }
+    }
+    
+    .thumb-info{
+        height:35px;
+        font-size:14px;
+        text-align: center;
+        position:relative;
+        p{
+            margin:10px 0;
+        }
+    }
+}
+
+.home-product{
+    height:500px;
+    background: #fff;
+    margin-bottom: 30px;
+}
+.home-side{
+    height:500px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+.home-travel-notes{
+    .thumb-cover{
+        height:240px;
+        overflow: hidden;
+    }
+    h5{
+        height:30px;
+        overflow:hidden;
+    }
+}
+
+.home-advert{
+    
+    .advert-item{
+        margin-bottom: 10px;
+    }
+    .advert-image{
+        height:200px;
+        overflow: hidden;
+        border-radius:15px;
+        img{
+            width:100%;
+        }
+    }
+    .advert-title{
+        text-align: center;
+        height:35px;
+        line-height: 35px;
+    }
+}
+
+
+.home-users{
+    border-right:1px solid #eee;
+    min-height: 700px;
+    h3{
+        font-size: 20px;
+        margin: 0 0 30px 0;
+    }
+    .media{
+        margin-bottom: 20px;
+        img{
+            width:40px;
+            height: 40px;
+            border-radius: 40px;
+        }
+        .media-heading{
+            line-height: 40px;
+            font-weight: normal;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+    }
+}

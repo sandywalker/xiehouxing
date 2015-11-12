@@ -1,4 +1,10 @@
 (function(root,$){
+	$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+	});
+
 
 	$('body').on('click','a.btn-remove',function(e){
 		var msg = $(this).data('message')?$(this).data('message'):'您确定删除这条数据吗？';

@@ -13,7 +13,7 @@ class ProductRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,8 +28,8 @@ class ProductRequest extends Request
             'types' => 'required',
             'place' => 'required',
             'tags' => 'required',
-            'member_count' => 'required|number',
-            'days' => 'required|number',
+            'member_size' => 'required|integer',
+            'days' => 'required|integer',
             'thumb' => 'required_without:id|image',
             'content' => 'required'
         ];
@@ -42,7 +42,7 @@ class ProductRequest extends Request
             'types' => '类型',
             'place' => '目的地',
             'tags' => '主题',
-            'member_count' => '人数',
+            'member_size' => '人数',
             'days' => '天数',
             'content' => '活动信息',
             'thumb' =>'预览图'

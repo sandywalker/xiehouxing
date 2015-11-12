@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Dict;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\ProductRequest;
 use App\Product;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class AdminProductController extends Controller
 {
@@ -15,10 +18,15 @@ class AdminProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $key = '';
-        $products = Product::select()->paginate(20);
+        $key = $request->input('key');
+        
+        if ($key){
+            $products = Product::where('title','like','%'.$key.'%')->orWhere('place','like','%'.$key.'%')->get();
+        }else{
+            $products = Product::all();    
+        }
         return view('admin.product.index',compact('key','products'));
     }
 
@@ -30,7 +38,8 @@ class AdminProductController extends Controller
     public function create()
     {
         $tags = Dict::byname('productTags')->items->lists('name','value');
-        return view('admin.product.create',compact('tags'));
+        $product = new Product;
+        return view('admin.product.create',compact('tags','product'));
     }
 
     /**
@@ -39,9 +48,16 @@ class AdminProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+         $product =  Product::create($request->all());
+        
+         $thumb = $request->file('thumb');
+         $banner = $request->file('banner');
+         $product->saveThumbs($thumb,$banner);
+         $product->save();
+
+         return redirect('/admin/products');
     }
 
     /**
@@ -63,7 +79,9 @@ class AdminProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $tags = Dict::byname('productTags')->items->lists('name','value');
+        return view('admin.product.edit',compact('product','tags'));
     }
 
     /**
@@ -75,7 +93,13 @@ class AdminProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        $thumb = $request->file('thumb');
+        $banner = $request->file('banner');
+        $product->saveThumbs($thumb,$banner);
+        $product->save();
+        return redirect($request->input('redirect_to'));
     }
 
     /**
@@ -84,8 +108,9 @@ class AdminProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+        Product::destroy($id);
+        return redirect($request->input('redirect_to'));
     }
 }

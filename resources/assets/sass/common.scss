@@ -4,8 +4,8 @@ $navbg : #fff;
 $nav-link: #000;
 $foot-link-color:#ccc;
 $nav-linkhov: $main-color;
-$main-color-dark:darken($main-color,10);
-$main-color-light:lighten($main-color,10);
+$main-color-dark:darken($main-color,5);
+$main-color-light:lighten($main-color,5);
 $nav-active:#fff;
 $nav-activebg:$nav-linkhov;
 $nav-activebg-dark: darken($nav-linkhov,5);
@@ -16,7 +16,21 @@ $price-color:$orange;
 $boy-color:#1493e3;
 $girl-color:#fa7fb6;
 $red-color:#e00;
+$blue-color:#0098ce;
+$green-color:#3ad531;
 
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: "alpha(opacity="+$opacity-ie+")";
+}
+
+.isStuck{
+    left:0;
+    width:100%;
+}
 
 .margin0{
 	margin:0;
@@ -46,6 +60,12 @@ a.link-main:hover{
 	color:$orange;
 }
 
+.fit{
+	width:100%;
+}
+.round{
+	border-radius:50%;
+}
 
 img.full-width{
     width:100%;
@@ -103,6 +123,7 @@ img.full-width{
 .thumb-round{
 	border-radius:50%;
 }
+
 
 .thumb-xs{
 	width:48px;

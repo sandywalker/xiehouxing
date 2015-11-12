@@ -45,6 +45,11 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
 
+    public function scopeTopUsers($query)
+    {
+        return $query->where('role','user')->orderBy('points');
+    }
+
     public static function avatar($user){
         return $user->avatar==null?User::DEF_AVATAR:$user->avatar;
     }

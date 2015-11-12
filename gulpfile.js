@@ -21,6 +21,7 @@ elixir(function(mix) {
              'libs/select2.min.js',
              'libs/jquery.magnific-popup.min.js',
              'libs/sweetalert.min.js',
+             'libs/jquery.webui-popover.min.js',
           ], './public/js/libs.js')
         .scripts([
              'libs/html5shiv.min.js',
@@ -29,11 +30,15 @@ elixir(function(mix) {
         .scripts([
              'main.js',
           ], './public/js/main.js')
+        .scripts([
+             'app.js',
+          ], './public/js/app.js')
          .styles([
              'libs/bootstrap.min.css',
              'libs/select2.css',
              'libs/magnific-popup.css',
-             'libs/sweetalert.css'
+             'libs/sweetalert.css',
+             'libs/jquery.webui-popover.min.css'
          ], './public/css/libs.css')
          .copy('resources/assets/fonts', 'public/fonts');
 

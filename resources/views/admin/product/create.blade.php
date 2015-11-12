@@ -3,7 +3,7 @@
 
 
 @section('content')
-{!! Form::open(['url'=>'/admin/products','enctype'=>'multipart/form-data']) !!}
+{!! Form::model($product,['url'=>'/admin/products','enctype'=>'multipart/form-data']) !!}
 {{-- <form action="/admin/banners" method="POST" enctype="multipart/form-data"> --}}
 
 

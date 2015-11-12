@@ -11,7 +11,7 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th width="120">预览</th>
+							<th width="80">预览</th>
 							<th width="300">标题(描述)</th>
 							<th>标签</th>
 							<th>链接</th>
@@ -34,7 +34,7 @@
 							<td> {{$banner->title }} <br> <span class="text-muted">{{$banner->description}}</span> </td>
 							<td> <span class="label label-success">{{ $banner->tag }}</span> </td>
 							<td>
-							  <a href="{{$banner->link}}" target="_blank">{{$banner->link}}</a> 
+							  <a href="{{$banner->link}}" target="_blank">{{str_limit($banner->link,30)}}</a> 
 							 </td>
 							<td>{{$banner->target}}</td>
 							<td>{{$banner->width.' x '.$banner->height}}</td>

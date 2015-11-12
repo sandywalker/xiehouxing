@@ -21,7 +21,9 @@
 							<th>标题和简介</th>
 							<th width="60">类型</th>
 							<th width="80">目的地</th>
+							<th width="80">天数</th>
 							<th width="150">主题</th>
+							
 							<th width="100">热度</th>
 							<th width="200">操作</th>
 						</tr>
@@ -43,13 +45,14 @@
 								@include('wedgits.types',['types'=>$product->types])
 							</td>
 							<td>{{$product->place}}</td>
+							<td>{{$product->days}}</td>
 							<td class="text-sm">{{$product->tags}}</td>
 							<td class="text-sm">
-								<span class="text-main"> 点击： {{$product->hits}} 次</span><br>
-								<span class="text-success"> 成交数： {{$product->deals}} 次</span><br>
+								<span class="text-main"> 总点击： {{$product->hits}} 次</span><br>
+								<span class="text-success"> 总成交： {{$product->deals}} 次</span><br>
 							</td>
 							<td>
-								<a href="/admin/products/{{$product->id}}" target="_blank" class="btn btn-success btn-xs ">预览</a>
+								{{-- <a href="/admin/products/{{$product->id}}" target="_blank" class="btn btn-success btn-xs ">预览</a> --}}
 								<a href="/admin/products/{{$product->id}}/edit" class="btn btn-info btn-xs ">编辑</a> 
 
 								{!! Form::model($product,['url'=>'/admin/products/'.$product->id,
@@ -63,7 +66,7 @@
 						@endforeach
 					</tbody>
 				</table>
-				{!! $products->appends(['key'=>$key])->render() !!}
+				
 
 			</div>
 		</div>

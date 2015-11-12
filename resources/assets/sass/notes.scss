@@ -1,4 +1,46 @@
 
+.travel-notes{
+    margin:20px 0 40px 0;
+    position: relative;
+    padding-right:20px;
+    h5{
+        color:#666;
+        margin: 15px 0;
+    }
+    img{
+        width:100%;
+    }
+
+    .summary{
+        color:#999;
+        font-size:12px;
+        margin: 0;
+        span{
+            margin-right: 12px;
+        }
+    }
+
+    .travel-notes-border{
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        height: 8px;
+        background: url(../img/bg-border.png) repeat-x;
+    }
+    .avatar{
+        position: absolute;
+        right:20px;
+        bottom:0;
+        width:40px;
+        height:40px;
+
+        img{
+            border-radius: 50%;
+        }
+    }
+}
+
 .note-list-title{
     text-align: center;
     display: table;

@@ -28,7 +28,6 @@
 									<i class="glyphicon glyphicon-star text-main"></i> {{$guide->favs}}
 									<i class="glyphicon glyphicon-comment text-main"></i> {{$guide->cmts}} &nbsp;
 									<i class="glyphicon glyphicon-heart text-main"></i> {{$guide->likes}}
-
 								</span>
 								
 								<a href="/guides/{{$guide->id}}" target="_blank" class="link-orange"><strong>{{$guide->title}}</strong></a>

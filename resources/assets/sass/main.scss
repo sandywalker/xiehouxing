@@ -31,6 +31,58 @@ body{
     color:$orange;
 }
 
+.calendar{
+    width:80px;
+    height:80px;
+    background:#fff;
+    background:rgba(255,255,255,.8);
+    border-radius:8px;
+    
+    overflow:hidden;
+    text-align: center;
+    .calendar-head{
+        height:18px;
+        background:#e8004c;
+    }
+    .calendar-label{
+        color:#999;
+        font-size: 12px;
+        font-weight: normal;
+    }
+    .calendar-content{
+        padding-top:5px;
+        font-size: 26px;
+        font-weight: bold;
+    }
+    
+
+}
+
+.calendar-sm{
+    width:60px;
+    height:60px;
+    .calendar-head{
+        height:10px;
+        background:#e8004c;
+    }
+    .calendar-content{
+        padding-top:2px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+}
+
+.circle-item{
+    border-radius:50%;
+    width:80px;
+    height:80px;
+    background:$main-color;
+    color:#fff;
+    line-height: 80px;
+    text-align: center;
+}
+
 
 dl.list{
     margin:0 0 8px 0;
@@ -242,6 +294,19 @@ dl.list-condense a,dl.list-mini a{
     }
 }
 
+#userMenuPop{
+    display: none;
+}
+
+.webui-popover .dropdown-menu{
+    display: block;
+    position:relative;
+    top:0;
+    border:none;
+    box-shadow:none;
+    float:none;
+}
+
 .carousel{
     .icon{
         width:50px;
@@ -339,9 +404,9 @@ dl.list-condense a,dl.list-mini a{
 
 
 .hover-zoom-in{
-    .thumb-image{
+    
         img{
-            transition:transform .8s;
+            transition:transform .5s;
         }
         &:hover{
             img{
@@ -349,7 +414,6 @@ dl.list-condense a,dl.list-mini a{
                 transform-origin: center;
             }
         }
-    }
 }
 .hover-silver{
     &:hover{
@@ -371,6 +435,7 @@ dl.list-condense a,dl.list-mini a{
 .section-title{
     h3{
         color:$main-color;
+        margin-bottom: 30px;
     }
 
     .more{
@@ -380,105 +445,6 @@ dl.list-condense a,dl.list-mini a{
     }
 }
 
-.home-product{
-    height:500px;
-    background: #fff;
-    margin-bottom: 30px;
-}
-.home-side{
-    height:500px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-}
-
-#city{
-    .home-side{
-        background-image: url("../img/home-side1.jpg");
-    }
-}
-
-#mainland{
-    .home-side{
-        background-image: url("../img/home-side2.jpg");
-    }
-}
-
-#foreign{
-    .home-side{
-        background-image: url("../img/home-side3.jpg");
-    }
-}
-
-.home-best{
-
-}
-
-
-.travel-notes{
-    margin:20px 0 40px 0;
-    position: relative;
-    padding-right:20px;
-    h5{
-        color:#666;
-        margin: 15px 0;
-    }
-    img{
-        width:100%;
-    }
-
-    .summary{
-        color:#999;
-        font-size:12px;
-        margin: 0;
-        span{
-            margin-right: 12px;
-        }
-    }
-
-    .travel-notes-border{
-        position: absolute;
-        top:0;
-        left:0;
-        right:0;
-        height: 8px;
-        background: url(../img/bg-border.png) repeat-x;
-    }
-    .avatar{
-        position: absolute;
-        right:20px;
-        bottom:0;
-        width:40px;
-        height:40px;
-
-        img{
-            border-radius: 50%;
-        }
-    }
-}
-
-
-.home-users{
-    border-right:1px solid #eee;
-    min-height: 700px;
-    h3{
-        font-size: 20px;
-        margin: 0 0 30px 0;
-    }
-    .media{
-        margin-bottom: 20px;
-        img{
-            width:40px;
-            height: 40px;
-            border-radius: 40px;
-        }
-        .media-heading{
-            line-height: 40px;
-            font-weight: normal;
-            font-size: 16px;
-            padding-left: 10px;
-        }
-    }
-}
 
 footer{
     height:282px;
@@ -590,11 +556,14 @@ footer{
 }
 
 
+
 @import "product";
 
 @import "guide" ;
 
 @import "notes";
+
+@import "home";
 
 @import "forum";
 

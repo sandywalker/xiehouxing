@@ -19,9 +19,9 @@ class CrateProductTable extends Migration
             $table->string('title');
             $table->string('place');
             $table->string('thumb');
-            $table->integer('original_price')->unsigned();
+            $table->decimal('original_price')->unsigned();
             $table->decimal('price')->unsigned();
-            $table->decimal('days')->unsigned()->default(1);
+            $table->integer('days')->unsigned()->default(1);
             $table->integer('member_size')->unsigned()->default(10);
             $table->longText('content');
             $table->integer('hits')->unsigned()->default(0);
@@ -43,6 +43,7 @@ class CrateProductTable extends Migration
             $table->longText('memos')->nullable();
 
             $table->string('tags')->nullable();
+            
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $topNotes = Note::topNotes()->with('user')->get()->slice(0,4);
+        $topNotes = Note::topNotes()->with('user')->take(4)->get();
         return view('notes.index',compact('topNotes'));
     }
 

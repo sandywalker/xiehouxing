@@ -42,7 +42,7 @@
                      <div class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object thumb-round" src="{{asset($comment->user->avatar)}}" alt="..."  >
+                                <img class="media-object thumb-xs thumb-round" src="{{asset($comment->user->avatar)}}" alt="..."  >
                             </a>
                         </div>
                         <div class="media-body">

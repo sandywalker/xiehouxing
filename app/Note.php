@@ -9,7 +9,6 @@ class Note extends Model
 {
 	protected $fillable = ['title','place','description','content','tags'];
 
-	private $root = 'img/notes/';
 
 	public function user()
 	{
@@ -52,17 +51,10 @@ class Note extends Model
 
 	public function saveThumb($thumb)
     {
-    	$root = $this->root;
-    	$time = time();
-    	if ($thumb!=null){
-    		if (!empty($this->thumb)&&file_exists($this->thumb)){
-    			unlink($this->thumb);
-    		}
-	    	$thumbname = $time.'.'.$thumb->getClientOriginalExtension();
-	        $thumb->move($root,$thumbname);
-
-	        $this->thumb = $root.$thumbname;
-    	}
+    	$root = Config::get('consts.note_root');
+        $time = time();
+        ImageService::savePic($root.'thumb/',$this,$thumb,'thumb',false,$time,400,300);
+    	
         $this->save();
     }
 

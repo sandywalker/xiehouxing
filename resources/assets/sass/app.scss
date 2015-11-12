@@ -9,7 +9,7 @@
 	background:#f2f2f2;
 }
 .modal-backdrop{
-		display: none;
+		// display: none;
 }
 
 
@@ -87,4 +87,18 @@ button.btn-alpha{
 
 .show{
 	display:block;
+}
+
+#productsModal{
+  .media{
+    border:3px solid #FFF;
+    padding:5px;
+  }
+  .media:hover{
+    cursor:pointer;
+    background:#f2f2f2;
+  }
+  .media.active{
+    border:3px solid $orange;
+  }
 }
