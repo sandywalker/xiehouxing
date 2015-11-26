@@ -33,11 +33,8 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/u/{id}','SpaceController@home');
 Route::get('/u/{id}/notes','SpaceController@notes');
 Route::get('/u/{id}/favs','SpaceController@favs');
+Route::get('/u/{id}/acts','SpaceController@acts');
 Route::get('/notes/notes','NoteController@notes');
-
-
-
-
 
 
 Route::group(['middleware' => 'user'],function(){

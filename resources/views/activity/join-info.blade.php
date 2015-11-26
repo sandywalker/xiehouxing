@@ -10,34 +10,7 @@
 	@elseif ($member->states == 1)
 		<p><strong class="text-orange">您已经成功下单,支付完就可以出发啦！</strong></p>
 	@endif
-	<table class="table table-bordered text-sm">
-		<thead>
-			<th width="80">状态</th>
-			<th width="80">称呼</th>
-			<th width="100">联系电话</th>
-			<th width="80">性别</th>
-			<th width="80">人数</th>
-			<th>同行伙伴</th>
-			<th>操作</th>
-		</thead>
-		<tbody>
-			<td>@include('activity.states',['states'=>$member->states])</td>
-			<td>{{$member->name}}</td>
-			<td>{{$member->phone_number}}</td>
-			<td>@include('wedgits.sex',['sex'=>$member->sex])</td>
-			<td>{{$member->count}}</td>
-			<td>{{$member->companion}}</td>
-			<td>
-				@if ($member->states == 0)
-					<a href="/activities/{{$activity->id}}/orders/create?memberId={{$member->id}}" class="btn btn-warning btn-sm">下订单</a> &nbsp;&nbsp;
-					<a  class="btn-remove" href="/activities/{{$activity->id}}/cancel/{{$member->id}}" data-message="机会难得，您确定取消此次活动报名吗？">取消</a>
-				@elseif($member->states > 0)
-					<a href="/activities/orders/{{$member->order->id}}" class="btn btn-success btn-sm" target="_blank">查看订单</a>
-				@endif
-			</td>
-
-		</tbody>
-	</table>
+	@include('activity.member-table',['atitle'=>false])
 @else
 	<div class="xh-joinform">
 

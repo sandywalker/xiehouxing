@@ -35,7 +35,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name','username', 'email','wechat', 'password','address'
+    protected $fillable = ['id','name','username', 'email','wechat', 'password','address'
                     ,'sex','birth','occupation','description','avatar','banner','phone_number'];
 
     /**
@@ -53,6 +53,15 @@ class User extends Model implements AuthenticatableContract,
 
     public static function avatar($user){
         return $user->avatar==null?User::DEF_AVATAR:$user->avatar;
+    }
+
+    public static function newId()
+    {
+        $id = User::max('id');
+        if ($id<100){
+            $id = 100;
+        }
+        return  $id+1;
     }
 
     public function getAvatarAttribute($value)

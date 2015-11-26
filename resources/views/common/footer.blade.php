@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-6">
                 <div >
-                    <p>  京ICP备15039616号－1<br>
+                    <p>  京ICP备15039616号－1  &nbsp;&nbsp;&nbsp; 京工网安备11011502002560 <br>
                         Copyright © 2014 - 2015 <a href="http://www.xiehouxing.com/" target="_blank">xiehouxing.com</a> All Rights Reserved. <a href="http://www.xiehouxing.com/" target="_blank" title="邂逅行旅游网" >邂逅行旅游网</a> 版权所有</p>
                 </div>
 

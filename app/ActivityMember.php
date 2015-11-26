@@ -25,10 +25,22 @@ class ActivityMember extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function activity()
+    {
+        return $this->belongsTo('App\Activity');
+    }
 
     public function order()
     {
         return $this->hasOne('App\ActivityOrder','member_id','id');
+    }
+
+    public static function findByUser($userId,$astate)
+    {
+        return  ActivityMember::with('activity')->where('user_id',$userId)->whereHas('activity',function($query) use($astate){
+            $query->where('states',$astate);
+        })->get();
+        
     }
 
     

@@ -6,7 +6,7 @@
 			   <li @if($menu=='notes') class="active" @endif><a href="/u/{{$user->id}}/notes">  游记</a></li>
 			   <li @if($menu=='favs') class="active" @endif><a href="/u/{{$user->id}}/favs">  收藏</a></li>
 			   {{-- <li @if($menu=='follow') class="active" @endif><a href="#"> 关注</a></li> --}}
-			   <li @if($menu=='product') class="active" @endif><a href="#"> 活动</a></li>
+			   <li @if($menu=='acts') class="active" @endif><a href="/u/{{$user->id}}/acts"> 活动</a></li>
 
 			   @if($user->isme())
 			   		<li><a href="/settings">  设置</a></li>

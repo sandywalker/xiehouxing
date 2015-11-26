@@ -42,6 +42,9 @@ class ActivityController extends Controller
     		$user = User::findOrFail(Auth::user()->id);
             $joined = ActivityMember::isJoined($id,$user->id);
             $member = ActivityMember::where('activity_id',$id)->where('user_id',$user->id)->first();
+            if ($member!=null){
+                $member->load('activity');
+            }
     	}	
     	$photos = Product::findOrFail($activity->product_id)->photos;
 

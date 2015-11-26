@@ -128,6 +128,7 @@
 
                   var memberCount = Number('{{$activity->member_count}}');
                   var memberSize = Number('{{$activity->member_size}}');
+                  var states = Number('{{$activity->states}}');
                   $('#activityNav').stickUp({
                   	 			parts: {
                                   0:'content',
@@ -142,20 +143,21 @@
                   });
                   smoothScroll.init();
 
-                  var progressBar = new ProgressBar.Circle('#memberInfo', {
-                  	  color: '#ff980a',
-                  	  trailColor: '#ccc',
-    				  trailWidth: 3,
-                      strokeWidth: 3,
-                      text:{
-                      	 value:memberCount +'/12'
-                      	
-                      }
+                  if (states==0){
+	                  var progressBar = new ProgressBar.Circle('#memberInfo', {
+	                  	  color: '#ff980a',
+	                  	  trailColor: '#ccc',
+	    				  trailWidth: 3,
+	                      strokeWidth: 3,
+	                      text:{
+	                      	 value:memberCount +'/12'
+	                      	
+	                      }
 
-                  });
-                  var count = memberCount>memberSize?memberSize:memberCount;
-                  progressBar.set(count/12);
-
+	                  });
+	                  var count = memberCount>memberSize?memberSize:memberCount;
+                  	  progressBar.set(count/memberSize);
+                  }
 
                   $('.side-photos').magnificPopup({
                     delegate: 'a', // child items selector, by clicking on it popup will open

@@ -41,7 +41,7 @@
 	                </div>
 	                </a>
 	                <div class="thumb-info">
-	                <h3>{{$activity->title}}</h3>
+	                <h3>{{str_limit($activity->title,18)}}</h3>
 	                <p>{{fdateCN($activity->start_date)}}出发 / {{$activity->days}}天 / {{$activity->member_size}} 人</p>
 	                </div>
 	            </div>

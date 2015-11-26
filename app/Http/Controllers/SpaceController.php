@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ActivityMember;
 use App\Guide;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -21,7 +22,8 @@ class SpaceController extends Controller
     {
         $user = User::findOrFail($id);
     	$notes = Note::where('creator',$id)->orderBy('id','desc')->take(5)->get();
-        return view('space.index',compact('notes','user'));
+        $members = ActivityMember::findByUser($user->id,0);
+        return view('space.index',compact('notes','user','members'));
     }
 
     public function notes($id)
@@ -36,6 +38,15 @@ class SpaceController extends Controller
         $user = User::findOrFail($id);
         $guides = Guide::userFavs($id);
         return view('space.favs',compact('guides','user'));
+    }
+
+    public function acts($id)
+    {
+        $user = User::findOrFail($id);
+        $members = ActivityMember::findByUser($user->id,0);
+        $members->merge(ActivityMember::findByUser($user->id,1));
+        $old_members = ActivityMember::findByUser($user->id,2);
+        return view('space.acts',compact('user','members','old_members'));
     }
 
     public function getViewModel($id)

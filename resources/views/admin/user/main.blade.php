@@ -15,10 +15,12 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
+							<th>ID</th>
 							<th>用户名</th>
 							<th>昵称</th>
 							<th>Email</th>
 							<th>微信</th>
+							<th>手机</th>
 							<th>角色</th>
 							<th>状态</th>
 							<th width="100">操作</th>
@@ -26,11 +28,14 @@
 					</thead>
 					<tbody>
 						<tr v-repeat="user:users | filterBy filter">
+							<td>@{{user.id}}</td>
 							<td>@{{user.username}}</td>
 							<td>@{{user.name}}</td>
 							<td>@{{user.email}}</td>
 							<td>@{{user.wechat}}</td>
+							<td>@{{user.phone_number}}</td>
 							<td>@{{user.role}}</td>
+							
 							<td>
 								<span class="text-success" v-show="user.states==1">正常</span>
 							    <span class="text-muted" v-show="user.states==0">停用</span>	
