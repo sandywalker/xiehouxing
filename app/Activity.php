@@ -16,11 +16,38 @@ class Activity extends Model
 
 	protected $dates = ['start_date'];
 
+    public function photos()
+    {
+        return $this->hasMany('App\ActivityPhoto');
+    }
+
+    public function members()
+    {
+        return $this->hasMany('App\ActivityMember');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany('App\ActivityOrder');
+    }
+
+    public function comments(){
+        return $this->hasMany('App\ActivityComment');
+    }
+
+    public function updateMember($count)
+    {
+        $this->member_count = $count;
+        $this->save();
+    }
+
+
     public static function fromProduct($productId,$startTime)
     {
     	$product = Product::findOrFail($productId);
     	
     	$activity = Activity::create($product->toArray());
+        $activity->product_id = $product->id;
     	$activity->start_date = Carbon::createFromFormat('Y-m-d', $startTime);
     	$activity->thumb = $product->thumb;
     	$activity->banner = $product->banner;

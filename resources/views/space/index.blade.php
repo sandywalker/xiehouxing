@@ -39,19 +39,24 @@
 			<p>&nbsp;</p>
 			@endif
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我的游记</h4>
-			@include('space.note-list')
-			
+			@if ($notes->count()>0)
+				@include('space.note-list')
+			@else
+				<div class=" well-space  text-center text-muted">
+					还没有写游记！@if($user->isme()) 放松一下，写下第一篇  <a href="/notes/create">游记</a> 吧！@endif
+				</div>
+			@endif
 
-			<p>&nbsp;</p>
-			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我的点评</h4>
+			{{-- <p>&nbsp;</p>
+			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a>  我的点评</h4>
 			<div class=" well-space  text-center text-muted">
 				潜水中，还没有点评！@if($user->isme()) 去逛逛，用你的旅行经验去<a href="#">帮助</a> 更多人吧！  @endif
-			</div>
+			</div> --}}
 			<p>&nbsp;</p>
 			<h4 class="space-head"> <a href="#" class="pull-right text-md"> 更多 </a> 我参加的活动</h4>
 			
 			<div class=" well-space  text-center text-muted">
-				还没有参加活动！@if($user->isme()) 去看看有没有喜欢的  <a href="#">活动</a> ！  @endif
+				还没有参加活动！@if($user->isme()) 去看看有没有喜欢的  <a href="/activities" target="_blank">活动</a> ！  @endif
 			</div>
 			<p>&nbsp;</p>
 		</article>

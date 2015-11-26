@@ -60,6 +60,12 @@ img.full-width {
 .text-lg {
   font-size: 18px; }
 
+.text-xl {
+  font-size: 26px; }
+
+.text-xxl {
+  font-size: 32px; }
+
 .thumb-image img,
 .thumb-image {
   width: 100%; }
@@ -82,6 +88,11 @@ img.full-width {
 .thumb-xxs {
   width: 32px;
   height: 32px; }
+
+.well-empty {
+  padding: 100px 50px;
+  font-size: 18px;
+  background: #f5f5f5; }
 
 body {
   font-family: 'Avenir Next','Helvetica Neue',Avenir,Helvetica,'Lantinghei SC','Hiragino Sans GB','Microsoft YaHei',sans-serif !important; }
@@ -132,6 +143,22 @@ body {
     font-size: 18px;
     font-weight: bold; }
 
+.calendar-xs {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px; }
+  .calendar-xs .calendar-head {
+    height: 8px; }
+  .calendar-xs .calendar-content {
+    padding-top: 2px;
+    font-size: 14px;
+    font-weight: bold; }
+
+.error {
+  font-size: 12px;
+  font-weight: normal;
+  color: red; }
+
 .circle-item {
   border-radius: 50%;
   width: 80px;
@@ -140,6 +167,10 @@ body {
   color: #fff;
   line-height: 80px;
   text-align: center; }
+
+.comments .avatar {
+  width: 64px;
+  height: 64px; }
 
 dl.list {
   margin: 0 0 8px 0;
@@ -484,7 +515,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: -1; }
+    z-index: -2; }
   #activity-banner h2 {
     color: #fff;
     text-align: center;
@@ -492,6 +523,15 @@ footer {
   #activity-banner p {
     color: #eee;
     text-align: center; }
+  #activity-banner .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#99000000',GradientType=0); }
 
 #activityNav {
   z-index: 999; }
@@ -538,6 +578,14 @@ footer {
     .activity-main aside .side-title {
       text-align: center;
       margin-bottom: 20px; }
+    .activity-main aside .side-photos .row {
+      margin: 0; }
+    .activity-main aside .side-photos .col-md-2, .activity-main aside .side-photos .col-md-3 {
+      padding: 0 2px;
+      overflow: hidden;
+      margin-bottom: 4px; }
+    .activity-main aside a.carousel-control {
+      background: none; }
   .activity-main article {
     min-height: 1000px;
     background: white;
@@ -607,10 +655,41 @@ footer {
         position: relative; }
       .activity-main article .xh-joinform .inp-tel input {
         width: 290px; }
-      .activity-main article .xh-joinform .inp-num input {
-        width: 112px; }
+      .activity-main article .xh-joinform .inp-num, .activity-main article .xh-joinform .inp-num input {
+        width: 102px; }
       .activity-main article .xh-joinform .inp-list input, .activity-main article .xh-joinform .ui-textarea textarea {
         width: 472px; }
+      .activity-main article .xh-joinform .inp-num-suffix {
+        float: right;
+        margin-right: 10px; }
+
+#orders {
+  background: #fff;
+  min-height: 500px; }
+  #orders .order-progress .col-md-1, #orders .order-progress .col-md-2, #orders .order-progress .col-md-3 {
+    text-align: center; }
+  #orders .order-progress .bar {
+    height: 15px;
+    background: #ddd;
+    margin-top: 10px; }
+    #orders .order-progress .bar.active {
+      background: #ff980a; }
+  #orders .order-progress .step .node {
+    margin: 0 auto;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: #bbb; }
+  #orders .order-progress .step.active .node {
+    background: #00a7cf; }
+
+.activity-banner img {
+  width: 100%; }
+
+.old-activities {
+  margin-bottom: 20px; }
 
 /*---------------------------------- guide-list -------------------------------------------*/
 .guide-list .guide-list-title {
@@ -738,7 +817,7 @@ footer {
   width: 220px; }
 
 .travel-notes {
-  margin: 20px 0 40px 0;
+  margin: 10px 0 20px 0;
   position: relative;
   padding-right: 20px; }
   .travel-notes h5 {
@@ -949,7 +1028,7 @@ footer {
     z-index: 999; }
   .home-activity-item .tag {
     position: absolute;
-    top: 260px;
+    bottom: 70px;
     left: 50%;
     margin-left: -40px;
     border-radius: 50%;
@@ -976,7 +1055,7 @@ footer {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px; }
   .home-activity-item .thumb-info {
-    height: 80px; }
+    height: 60px; }
   .home-activity-item h3 {
     text-align: center;
     font-size: 18px;
@@ -985,6 +1064,34 @@ footer {
     font-size: 12px;
     color: #999;
     text-align: center; }
+
+@media (max-width: 1200px) {
+  .home-activity-item .thumb-cover {
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 50px; } }
+
+.home-activity-small {
+  margin-bottom: 10px; }
+  .home-activity-small .tag {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    bottom: 60px;
+    font-size: 14px;
+    line-height: 50px; }
+  .home-activity-small .thumb-cover {
+    height: 150px;
+    margin-bottom: 30px; }
+    .home-activity-small .thumb-cover img {
+      border-radius: 0; }
+  .home-activity-small h3 {
+    font-size: 16px;
+    margin-bottom: 5px; }
+  .home-activity-small .thumb-info {
+    height: 50px; }
+  .home-activity-small .hover-zoom-in:hover {
+    border-radius: 0; }
 
 .home-thumb-guide {
   margin-bottom: 20px;
@@ -1050,7 +1157,9 @@ footer {
   overflow: hidden; }
 
 .home-travel-notes h5 {
-  height: 30px;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
   overflow: hidden; }
 
 .home-advert .advert-item {
@@ -1065,8 +1174,9 @@ footer {
 
 .home-advert .advert-title {
   text-align: center;
-  height: 35px;
-  line-height: 35px; }
+  height: 25px;
+  line-height: 25px;
+  margin: 0; }
 
 .home-users {
   border-right: 1px solid #eee;
@@ -1307,6 +1417,7 @@ footer {
 
 #home li.menu-home > a,
 #guide li.menu-guide > a,
+#activity li.menu-activity > a,
 #note li.menu-note > a {
   color: #fff;
   background: #00a7cf; }

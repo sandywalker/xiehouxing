@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-    	$activities = Activity::where('istop',1)->orderBy('order_number')->get();
+    	$activities = Activity::where('istop',1)->where('states',0)->orderBy('order_number')->get();
     	$guides = Guide::where('isbest','=',1)->orderBy('orders')->take(6)->get();
     	$topNotes = Note::topNotes()->with('user')->take(6)->get();
     	//$users = User::topUsers()->take(10)->get();

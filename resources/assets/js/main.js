@@ -52,6 +52,14 @@
 		});
 	});
 
+	$('a.share-weixin').webuiPopover();
+
+	$('a.pop-login').webuiPopover({width:500});
+
+	$('a.gongzhonghao').webuiPopover({
+		content:'<img src="/img/qrcode.jpg">'
+	});
+
 
 
 })(window,jQuery);

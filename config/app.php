@@ -146,7 +146,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
 
     ],
 
@@ -198,7 +199,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
-        'Image'     => Intervention\Image\Facades\Image::class
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class
 
     ],
 

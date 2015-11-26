@@ -167,8 +167,8 @@
 				<ul>
 					<li><a href="#product" id="menu-product" data-url="/admin/products" >产品管理</a></li>
 					<li><a href="#activity" id="menu-activity" data-url="/admin/activities" >活动管理</a></li>
-					<li><a href="#">活动评论管理</a></li>
-					<li><a href="#">订单管理</a></li>
+					<li><a href="#acomment" id="menu-acomment" data-url="/admin/acomments">活动评论管理</a></li>
+					<li><a href="#order" id="menu-order" data-url="/admin/orders">订单管理</a></li>
 				</ul>
 			</li>
 			<li>

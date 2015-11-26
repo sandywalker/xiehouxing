@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Validator;
 
 class AuthController extends Controller
@@ -29,7 +30,7 @@ class AuthController extends Controller
     protected $redirectAfterLogout = '/';
     
 
-    protected $username = 'username';
+    protected $username = 'email';
 
     /**
      * Create a new authentication controller instance.
@@ -85,5 +86,13 @@ class AuthController extends Controller
        }
        return '/';
     }
+
+    public function authenticated($request, $user)
+    {
+        $url = $request->has('login_to')?$request->input('login_to'):$this->redirectPath();
+        return redirect()->intended($url);
+    }
+
+
 
 }

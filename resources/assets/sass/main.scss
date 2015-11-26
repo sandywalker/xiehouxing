@@ -73,6 +73,27 @@ body{
 
 }
 
+.calendar-xs{
+    width:45px;
+    height:45px;
+    border-radius:6px;
+    .calendar-head{
+        height:8px;
+    }
+    .calendar-content{
+        padding-top:2px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+}
+
+.error{
+    font-size:12px;
+    font-weight: normal;
+    color:red;
+}
+
 .circle-item{
     border-radius:50%;
     width:80px;
@@ -81,6 +102,13 @@ body{
     color:#fff;
     line-height: 80px;
     text-align: center;
+}
+
+.comments{
+    .avatar{
+        width:64px;
+        height:64px;
+    }
 }
 
 
@@ -643,6 +671,7 @@ footer{
 
 #home  li.menu-home>a,
 #guide  li.menu-guide>a,
+#activity  li.menu-activity>a,
 #note  li.menu-note>a{
     color: $nav-active;
     background: $nav-activebg;   

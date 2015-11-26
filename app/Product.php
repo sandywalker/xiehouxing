@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\ActivityPhoto;
 use App\Services\ImageService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
@@ -19,6 +20,11 @@ class Product extends Model
         $time = time();
         ImageService::savePic($root.'thumb/',$this,$thumb,'thumb',true,$time,600,338);
         ImageService::savePic($root.'banner/',$this,$banner,'banner',true,$time,1200,400);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany('App\ActivityPhoto');
     }
     
 }

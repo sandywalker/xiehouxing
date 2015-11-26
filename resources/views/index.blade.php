@@ -30,12 +30,12 @@
             <section class="container">
                 <div class="row">
                     <div class="col-md-12 section-title">
-                        <h3><a href="#"><span class="more">更多...</span></a>超人气活动</h3>
+                        <h3><a href="/activities"><span class="more">更多...</span></a>超人气活动</h3>
                     </div>
                 </div>
                 <div class="row">
                     @foreach($activities as $activity)
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-6">
                         <div class="home-activity-item ">
                             <div class="tag">
                                 {{$activity->tags}}
@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-md-12 section-title">
                         <hr>
-                        <h3><a href="#"><span class="more">更多...</span></a> 热门攻略 </h3>
+                        <h3><a href="/guides"><span class="more">更多...</span></a> 热门攻略 </h3>
 
                     </div>
                 </div>
@@ -96,6 +96,8 @@
             </section>
             </div>
 
+            
+
             <div class="home-advert">
                 <section class="container">
                     <div class="row">
@@ -119,7 +121,6 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                
                             <hr>
                         </div>
                     </div>
@@ -130,8 +131,7 @@
                 <div class="row">
                     <div class="col-md-12 section-title">
                         
-                        <h3><a href="guide-list.html"><span class="more">更多...</span></a>精品游记</h3>
-                    </div>
+                        <h3><a href="/notes"><span class="more">更多...</span></a>精品游记</h3>
                 </div>
                 <div class="row">
 

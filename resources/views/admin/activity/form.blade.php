@@ -20,7 +20,7 @@
 		</div>
 		<div class="col-md-4">
 			{!!Form::label('states','状态')!!} <span class="text-danger">*</span>
-			{!!Form::select('states',[0=>'报名中',1=>'已成行',2=>'已结束',100=>'取消'],null,['class'=>'form-control input-sm','id'=>'states'])!!}
+			{!!Form::select('states',[0=>'报名中',1=>'已开始',2=>'已结束',100=>'取消'],null,['class'=>'form-control input-sm','id'=>'states'])!!}
 		</div>
 	</div>
 	<p>&nbsp;</p>

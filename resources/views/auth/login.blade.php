@@ -19,7 +19,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">用户名</label>
                                     <div class="col-md-8">
-                                        <input type="username" class="form-control" name="username" value="{{ old('username') }}">
+                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="请输入注册邮箱">
                                     </div>
                                 </div>
 

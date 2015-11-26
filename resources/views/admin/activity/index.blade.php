@@ -78,13 +78,9 @@
 							<td>
 								{{-- <a href="/admin/activities/{{$activity->id}}" target="_blank" class="btn btn-success btn-xs ">预览</a> --}}
 								<a href="/admin/activities/{{$activity->id}}/edit" class="btn btn-info btn-xs ">编辑</a> 
+								<a href="/admin/activities/{{$activity->id}}/photos" class="btn btn-success btn-xs ">照片</a> 
+								@include('wedgits.link-delete',['action' => '/admin/activities/'.$activity->id])
 
-								{!! Form::model($activity,['url'=>'/admin/activities/'.$activity->id,
-														 'method'=>'DELETE',
-														 'class'=>'inblock']) !!}
-								{!! Form::hidden('redirect_to', Request::url()) !!}	
-								<button type="submit" class="btn btn-danger btn-xs btn-remove">删除</buton>
-								{!! Form::close() !!}
 							</td>
 						</tr>
 						@endforeach
@@ -107,12 +103,7 @@
 
 			$('.activity-thumb').magnificPopup({type:'image'});
 
-			$('body').on('click','.btn-remove',function(e){
-				if (confirm('您确定删除这条数据吗?')){
-					return true;
-				}
-				return false;
-			});
+			
 
 			$('#addActivity').on('click',function(e){
 				e.preventDefault();

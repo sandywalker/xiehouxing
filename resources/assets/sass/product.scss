@@ -13,7 +13,7 @@
         top:0;
         left:0;
         width:100%;
-        z-index: -1;
+        z-index: -2;
     }
     h2{
         color:#fff;
@@ -23,6 +23,21 @@
     p{
         color: #eee;
         text-align: center;
+    }
+    .bg{
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            background: -moz-linear-gradient(top,rgba(0,0,0,0) 0px,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%);
+            background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(50%,rgba(0,0,0,0.3)),color-stop(100%,rgba(0,0,0,0.8)));
+            background: -webkit-linear-gradient(top,rgba(0,0,0,0) 10px,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%);
+            background: -o-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%);
+            background: -ms-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.8) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',endColorstr='#99000000',GradientType=0);
     }
 
 }
@@ -87,6 +102,20 @@
             text-align: center;
             margin-bottom: 20px;
 
+        }
+        .side-photos{
+            .row{
+                margin:0;
+            }
+            .col-md-2,.col-md-3{
+                padding:0 2px;
+                
+                overflow: hidden;
+                margin-bottom: 4px;
+            }
+        }
+        a.carousel-control{
+            background:none;
         }
     }
     article{
@@ -180,15 +209,65 @@
             .inp-tel input {
                 width: 290px;
             }
-            .inp-num input {
-                width: 112px;
+            
+            .inp-num,.inp-num input {
+                width: 102px;
             }
             .inp-list input, .ui-textarea textarea {
                 width: 472px;
+            }
+            .inp-num-suffix{
+                float:right;
+                margin-right:10px;
             }
 
         }
     }    
 } 
+
+#orders{
+    background:#fff;
+    min-height: 500px;
+    .order-progress{
+        .col-md-1,.col-md-2,.col-md-3{
+            text-align: center;
+
+        }
+        .bar{
+            height:15px;
+            background:#ddd;
+            margin-top:10px;
+            &.active{
+                background:$orange;
+            }
+        }
+
+        .step{
+            .node{
+                margin:0 auto;
+                height:40px;
+                width:40px;
+                line-height: 40px;
+                border-radius:50%;
+                color:#fff;
+                background:#bbb;
+            }
+            &.active .node{
+                background:$main-color;
+            }  
+        }
+        
+    }
+}
+
+.activity-banner{
+    img{
+        width:100%;
+    }
+}
+
+.old-activities{
+    margin-bottom:20px;
+}
 
   

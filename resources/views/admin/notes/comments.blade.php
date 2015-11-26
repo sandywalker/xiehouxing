@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h5 class="app-title"> 攻略评论管理 </h5>
+<h5 class="app-title"> 游记评论管理 </h5>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -74,11 +74,6 @@
 
 @section('js')
 	<script>
-			$('body').on('click','.btn-remove',function(e){
-				if (confirm('您确定删除这条数据吗?')){
-					return true;
-				}
-				return false;
-			});
+			
 	</script>
 @endsection

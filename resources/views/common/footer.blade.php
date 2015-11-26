@@ -5,7 +5,7 @@
                 <div class="foot-list">
                     <dl>
                         <dt>关于我们</dt>
-                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','101');" title="邂逅行介绍">乐途介绍</a></dd>
+                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','101');" title="邂逅行介绍">邂逅行介绍</a></dd>
                         <dd><a href="#" target="_blank" onclick="return FocusCount('tail','102');" title="招贤纳士">招贤纳士</a></dd>
                         <dd><a href="#" target="_blank" onclick="return FocusCount('tail','103');" title="网站荣誉">网站荣誉</a></dd>
                         <dd><a href="#" target="_blank" onclick="return FocusCount('tail','104');" title="联系我们">联系我们</a></dd>
@@ -39,7 +39,7 @@
                 <div class="text-right">
                     <p><strong>邂逅游公众号</strong></p>
                     <p>
-                        <img  class="qrcode" src="{{asset('img/qrcode.png')}}" alt=""/>
+                        <img  class="qrcode" src="{{asset('img/qrcode.jpg')}}" alt=""/>
                     </p>
                 </div>
 

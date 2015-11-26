@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Services\ImageService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 class Note extends Model
 {

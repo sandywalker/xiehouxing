@@ -36,7 +36,7 @@ Route::get('/u/{id}/favs','SpaceController@favs');
 Route::get('/notes/notes','NoteController@notes');
 
 
-Route::get('/activities/{id}','ActivityController@show');
+
 
 
 
@@ -66,7 +66,22 @@ Route::group(['middleware' => 'user'],function(){
 	Route::get('/social/{fId}/follow/{id}','SocialController@follow');
 	Route::get('/social/{fId}/unfollow/{id}','SocialController@unFollow');
 
+	Route::post('activities/{id}/comments','ActivityController@storeComments');
+
+	Route::get('/activities/orders/{id}/cancel','ActivityController@cancelOrder');
+	
+	Route::get('/activities/{id}/orders/create','ActivityController@createOrder');
+	Route::post('/activities/{id}/orders/create','ActivityController@storeOrder');
+	Route::get('/activities/{id}/cancel/{memberId}','ActivityController@cancel');
+	Route::post('/activities/{id}/join','ActivityController@join');
+	Route::get('/activities/orders/{id}','ActivityController@showOrder');
+	
+
 });
+
+Route::get('/activities','ActivityController@index');
+Route::get('/activities/{id}','ActivityController@show');
+
 Route::get('/notes','NoteController@index');
 Route::get('/notes/{id}','NoteController@show');
 
@@ -122,8 +137,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 
 	Route::resource('products', 'AdminProductController');
 
+	Route::resource('acomments', 'AdminActivityCommentController');
+
+	Route::resource('orders', 'AdminActivityOrderController');
+
+	Route::delete('activities/photos/{id}', 'AdminActivityPhotoController@destroy');
+	Route::get('activities/{id}/photos', 'AdminActivityPhotoController@index');
+	Route::post('activities/{id}/photos', 'AdminActivityPhotoController@store');
 	Route::get('activities/select/products','AdminActivityController@selectProducts');
 	Route::resource('activities', 'AdminActivityController');
+
+
 
 
 

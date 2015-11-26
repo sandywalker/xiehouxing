@@ -59,6 +59,12 @@ img.full-width {
 .text-lg {
   font-size: 18px; }
 
+.text-xl {
+  font-size: 26px; }
+
+.text-xxl {
+  font-size: 32px; }
+
 .thumb-image img,
 .thumb-image {
   width: 100%; }
@@ -81,6 +87,11 @@ img.full-width {
 .thumb-xxs {
   width: 32px;
   height: 32px; }
+
+.well-empty {
+  padding: 100px 50px;
+  font-size: 18px;
+  background: #f5f5f5; }
 
 .inblock {
   display: inline-block; }
