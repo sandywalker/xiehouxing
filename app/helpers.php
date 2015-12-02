@@ -18,6 +18,11 @@ function fdate($date)
 	return $date->format('Y-m-d');
 }
 
+function fdatetime($date)
+{
+	return $date->format('Y-m-d h:i:s');
+}
+
 function fdateCN($date)
 {
 	return $date->format('Y年m月d');

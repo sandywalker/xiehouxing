@@ -36,6 +36,14 @@ Route::get('/u/{id}/favs','SpaceController@favs');
 Route::get('/u/{id}/acts','SpaceController@acts');
 Route::get('/notes/notes','NoteController@notes');
 
+// 微信支付
+Route::get('/wxpay/weixin','WxPayController@weixin');
+Route::get('/wxpay/qrcode','WxPayController@qrcode');
+Route::any('/wxpay/notify','WxPayController@notify');
+Route::any('/wxpay/check','WxPayController@check');
+Route::any('/wxpay/success','WxPayController@success');
+Route::any('/wxpay/failed','WxPayController@failed');
+
 
 Route::group(['middleware' => 'user'],function(){
 	Route::get('/settings','SettingController@index');

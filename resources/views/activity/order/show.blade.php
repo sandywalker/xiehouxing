@@ -1,4 +1,6 @@
 @extends('def')
+
+@section('title','查看订单')
 @section('content')
 
 <div id="orders">
@@ -57,7 +59,7 @@
 		<div class="col-md-12">
 			<h4 class="text-orange">支付方式</h4>
 			@if($order->pay_approach == 0)
-				<p class="well">在线支付</p>
+				<p class="well"><strong>在线支付</strong> &nbsp;&nbsp;&nbsp;&nbsp; @include('pay.paytype',['paytype'=>$order->pay_type])</p>
 			@else
 				<div class="well">
 				<p><strong>离线支付</strong></p>
@@ -68,10 +70,30 @@
 			@endif
 		</div>
 	</div>
+	@if($order->states>0)
+	<div class="row">
+		<div class="col-md-12">
+			<h4 class="text-orange">订单信息</h4>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;订单状态：@include('activity.order.states',['states'=>$order->states])</p>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>订单编号：{{$order->code}}</td>
+						<td>交易编号：{{$order->pay_code}}</td>
+					</tr>
+					<tr>
+						<td>创建时间：{{fdate($order->created_at)}}</td>
+						<td>付款时间：{{fdate($order->pay_time)}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
+	@endif			
 	<hr>
 	
-	@if($order->states == 0&&$activity->states == 0)
+	@if(($order->states == 0||$order->states == 2)&&$activity->states == 0)
 	<div class="row">
 		<div class="col-md-12">
 			<a href="/activities/orders/{{$order->id}}/cancel" class="btn btn-default pull-right btn-remove" data-message="您确定要取消订单吗?" >取消订单</a>&nbsp;&nbsp;

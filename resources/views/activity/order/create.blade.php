@@ -43,7 +43,7 @@
 
 	<div class="row">
 		<div class="col-md-4 col-md-offset-5">
-			<a href="#" class="btn btn-warning btn-lg " onclick="alert('在线支付正在内测，近期推出，抱歉给您带来不便！');return false;">在线支付</a>&nbsp;&nbsp;
+			<a href="#" class="btn btn-warning btn-lg" id="btnOnline">在线支付</a>&nbsp;&nbsp;
 			<a href="#" class="btn btn-info btn-lg" id="btnOffline">离线支付</a>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 		      <input type="hidden" name="memberId" value="{{$member->id}}">
 		      <input type="hidden" name="memo" id="memo">
 		      <input type="hidden" name="discount" value="{{$discount}}">
-		      <input type="hidden" name="pay_approach" value="1">
+		      <input type="hidden" name="pay_approach" value="1" id="payApproach">
 		      <input type="hidden" name="amount" value="{{$amount}}">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -99,6 +99,13 @@
 			$('#btnOffline').on('click',function(e){
 				e.preventDefault();
 				$('#memo').val($('#mmemo').val());
+				$('#confirmModal').modal('show');
+			});
+
+			$('#btnOnline').on('click',function(e){
+				e.preventDefault();
+				$('#memo').val($('#mmemo').val());
+				$('#payApproach').val('0');
 				$('#confirmModal').modal('show');
 			});
 

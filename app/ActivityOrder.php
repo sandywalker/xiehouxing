@@ -7,10 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivityOrder extends Model
 {
+
+    protected $dates = ['created_at', 'updated_at', 'pay_time'];
+
+
     public static function newCode($activityId,$userId)
     {
     	return Carbon::now()->format('Ymdhis').$activityId.$userId;
     }
+
+    public static function byCode($code)
+    {
+        return ActivityOrder::where('code',$code)->first();
+    }
+
 
     public function activity(){
         return $this->belongsTo('App\Activity');

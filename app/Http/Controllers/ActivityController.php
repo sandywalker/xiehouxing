@@ -105,10 +105,15 @@ class ActivityController extends Controller
         $member = ActivityMember::findOrFail($memberId);
 
         $order = ActivityOrder::newOrder($activity,$member,$request);
-        $member->states = 1;
-        $member->save();
-        flash()->success('下单成功','您已成功创建订单,邂逅行将会为您提供最优质的服务！');
-        return redirect('/activities/orders/'.$order->id);
+        if ($order->pay_approach == 1){
+            $member->states = 1;
+            $member->save();
+            flash()->success('下单成功','您已成功创建订单,邂逅行将会为您提供最优质的服务！');
+            return redirect('/activities/orders/'.$order->id);      
+        }else{
+            return redirect('/wxpay/weixin?orderId='.$order->id);
+        }
+        
     }
 
     public function showOrder($id,Request $request)

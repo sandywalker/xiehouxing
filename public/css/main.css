@@ -691,6 +691,25 @@ footer {
 .old-activities {
   margin-bottom: 20px; }
 
+.wepay-logo {
+  width: 40px; }
+
+.pay-content {
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 1px;
+  margin-bottom: 50px; }
+
+.pay-qrcode {
+  width: 200px;
+  margin: 50px auto; }
+  .pay-qrcode img {
+    width: 100%;
+    margin-bottom: 10px; }
+
+.online-pay-info {
+  line-height: 80px; }
+
 /*---------------------------------- guide-list -------------------------------------------*/
 .guide-list .guide-list-title {
   color: #ff980a;
