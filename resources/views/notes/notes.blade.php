@@ -14,7 +14,7 @@
                 <a href="#"><i class="glyphicon glyphicon-heart"></i></a> {{$note->hits}} &nbsp;&nbsp;&nbsp;
                 <a href="#"><i class="glyphicon glyphicon-comment"></i></a> {{$note->cmts}}&nbsp;&nbsp;&nbsp;
             </div>
-            <div class=" item-avatar"><img src="{{asset($note->user->avatar)}}" alt=""> {{$note->user->name}}</div>
+            <div class=" item-avatar"><a href="/u/{{$note->user->id}}" target="_blank"><img src="{{asset($note->user->avatar)}}" alt=""></a> {{$note->user->name}}</div>
         </div>
     </div>
 

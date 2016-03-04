@@ -1,3 +1,4 @@
+
 <table class="table table-bordered text-sm">
 		<thead>
 			@if($atitle)
@@ -36,7 +37,7 @@
 
 				@if ($member->states == 0)
 					<a href="/activities/{{$member->activity->id}}/orders/create?memberId={{$member->id}}" class="btn btn-warning btn-xs">下订单</a> &nbsp;&nbsp;
-					<a  class="btn-remove" href="/activities/{{$activity->id}}/cancel/{{$member->id}}" data-message="机会难得，您确定取消此次活动报名吗？">取消</a>
+					<a  class="btn-remove" href="/activities/{{$member->activity->id}}/cancel/{{$member->id}}" data-message="机会难得，您确定取消此次活动报名吗？">取消</a>
 				@elseif($member->states > 0)
 					<a href="/activities/orders/{{$member->order->id}}" class="btn btn-success btn-xs" target="_blank">查看订单</a>
 				@endif

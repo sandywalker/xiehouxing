@@ -15,7 +15,14 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\WxPayEvent' => [
             'App\Listeners\WxPayEventListener',
+
         ],
+
+        'SocialiteProviders\Manager\SocialiteWasCalled' => [
+            // add your listeners (aka providers) here
+            'SocialiteProviders\Qq\QqExtendSocialite@handle',
+        ],
+
     ];
 
     /**

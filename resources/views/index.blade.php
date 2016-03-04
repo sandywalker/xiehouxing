@@ -1,20 +1,22 @@
 @extends('def')
 @section('id','home')
+@section('title',$seos['index']->title)
+@endsection
 @section('content')
-    
     		<section id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    @foreach($banners as $idx => $banner)
+                    <li data-target="#carousel-example-generic" data-slide-to="{{$idx}}" @if($idx == 0) class="active" @endif ></li>
+                    @endforeach
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active"><img src="img/slide3.jpg" alt="..."></div>
-                    <div class="item"><img src="img/slide1.jpg" alt="..."></div>
-                    <div class="item"><img src="img/slide2.jpg" alt="..."></div>
+                    @foreach($banners as $idx => $banner)
+                    <div class="item @if($idx == 0) active @endif">
+                    <a href="{{$banner->link}}" target="{{$banner->target}}"><img src="{{asset($banner->path)}}" alt="..."></a></div>
+                    @endforeach
                 </div>
 
                 <!-- Controls -->
@@ -43,8 +45,13 @@
                             <div class="calendar calendar-sm">
                                     <div class="calendar-head"></div>
                                     <div class="calendar-content">
-                                        <div class="calendar-label">还有</div>
-                                        {{daysAfter($activity->start_date)}}天                                        
+                                        <?php $days = daysAfter($activity->start_date)?>
+                                        @if($days > 0)
+                                            <div class="calendar-label">还有</div>
+                                            {{$days}}天    
+                                        @else
+                                            <div class="calendar-label">已开始</div>
+                                        @endif                                    
                                     </div>
                             </div>
                             <a href="/activities/{{$activity->id}}" target="_blank">
@@ -67,7 +74,7 @@
 			<section class="container" >
                 <div class="row">
                     <div class="col-md-12 section-title">
-                        <hr>
+                        
                         <h3><a href="/guides"><span class="more">更多...</span></a> 热门攻略 </h3>
 
                     </div>
@@ -102,7 +109,7 @@
                 <section class="container">
                     <div class="row">
                         <div class="col-md-12 section-title">
-                            <hr>
+                            
                             <h3> 用心推荐 </h3>
 
                         </div>
@@ -121,7 +128,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <hr>
+                            
                         </div>
                     </div>
                 </section>
@@ -133,7 +140,7 @@
                         
                         <h3><a href="/notes"><span class="more">更多...</span></a>精品游记</h3>
                 </div>
-                <div class="row">
+                
 
                     {{-- <div class="col-md-3">
                             <div class="home-users">
@@ -159,7 +166,9 @@
                                 <div class="col-md-4  col-xs-6 ">
                                     <div class="travel-notes home-travel-notes">
                                         <div class="travel-notes-border"></div>
-                                        <div class="avatar"><img src="{{asset($tnote->user->avatar)}}" alt=""></div>
+                                        <div class="avatar"> 
+                                            <a href="/u/{{$tnote->user->id}}" target="blank"> <img src="{{asset($tnote->user->avatar)}}" alt=""></a>
+                                        </div>
                                         <div class="thumb-cover">
                                             <a href="/notes/{{$tnote->id}}" target="_blank"><img src="{{asset($tnote->thumb)}}" alt=""></a>
                                         </div>
@@ -176,7 +185,7 @@
                     </div>
 
 
-                </div>
+                
             </section>
 
 @endsection

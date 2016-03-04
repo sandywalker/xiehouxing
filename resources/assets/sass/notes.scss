@@ -2,11 +2,16 @@
 .travel-notes{
     margin:10px 0 20px 0;
     position: relative;
-    padding-right:20px;
     h5{
         color:#666;
         margin: 15px 0;
     }
+
+     .note-cover{
+        height:180px;
+        overflow: hidden;
+    }
+
     img{
         width:100%;
     }
@@ -48,6 +53,7 @@
     width:100%;
     padding:0 15px;
     position: relative;
+    border-bottom:none;
     &:before, &:after {
         border-top: 1px solid $main-color;
         content: '';
@@ -58,6 +64,10 @@
     }
     &:before { right: 0; }
     &:after { left: 0; }
+}
+
+h3.note-list-title{
+    border-bottom:none;
 }
 
 .note-list{

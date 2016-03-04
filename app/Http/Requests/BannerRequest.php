@@ -26,7 +26,7 @@ class BannerRequest extends Request
         return [
             'title' => 'required',
             'tag' => 'required',
-            'photo' => 'required_without:id|image',
+            'photo' => 'image',
             'link' => 'url',
             'orders' => 'integer'
         ];

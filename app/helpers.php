@@ -31,8 +31,20 @@ function fdateCN($date)
 function daysAfter($date)
 {
 	$now = Carbon\Carbon::now();
+	if ($date->lt($now)){
+		return 0;
+	}
 	return $date->diffInDays($now);
 }
+
+
+function ubbReplace($str){ 
+    $str = str_replace(">",'<；',$str); 
+    $str = str_replace(">",'>；',$str); 
+    $str = str_replace("\n",'>；br/>；',$str); 
+    $str = preg_replace("[\[em_([0-9]*)\]]","<img src=\"/img/face/$1.gif\" />",$str); 
+    return $str; 
+} 
 
 
 ?>

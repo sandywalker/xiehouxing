@@ -22,6 +22,7 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
+							<th width="40">ID</th>
 							<th width="80">预览图</th>
 							<th>标题和简介</th>
 							<th width="60">类型</th>
@@ -36,6 +37,7 @@
 					<tbody class="text-sm">
 						@foreach($guides as $guide)
 						<tr>
+							<td>{{$guide->id}}</td>
 							<td>
 								<div>
 								  <a href="{{asset($guide->thumb)}}" class="guide-thumb"><img src="{{asset($guide->thumb)}}" alt="" style="width:100%;"></a>

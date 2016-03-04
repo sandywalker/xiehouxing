@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Weibo\SaeTOAuthV2;
+use App\Weibo\WeiboConfig;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
@@ -42,6 +44,22 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate');
+        }
+        $o = new SaeTOAuthV2( WeiboConfig::appKey() , WeiboConfig::securityKey() );
+        $weibo_url = $o->getAuthorizeURL( WeiboConfig::callbackUrl() );
+        return view('auth.login',compact('weibo_url'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -59,7 +77,9 @@ class AuthController extends Controller
 
     protected function getCredentials(Request $request)
     {
-        return array_add($request->only($this->loginUsername(), 'password'),'states',1);
+        $credentials = array_add($request->only($this->loginUsername(), 'password'),'states',1);
+        $credentials = array_add($credentials,'binding',null);
+        return $credentials;
     }
 
     /**

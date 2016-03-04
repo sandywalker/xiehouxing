@@ -5,9 +5,9 @@
 @section('content')
 
 <div class="guide-banner">
-            <img src="{{asset($guide->banner_thumb)}}" alt="..." class="full-width">
+            <img src="{{asset($guide->banner())}}" alt="..." class="full-width">
             <div class="guide-brief">
-                <h1>{{$guide->title}}</h1>
+                <h1>{{str_limit($guide->title,30)}}</h1>
                 <h4>{{$guide->description}}</h4>
             </div>
 </div>
@@ -17,9 +17,11 @@
 		<div class="col-md-1">&nbsp;</div>
 		<div class="col-md-7">
 			<article>
-				<h2>
-                    <span class="pull-right social-actions">
-                        <span class="text-orange">  浏览&nbsp; <span class="hits"> {{$guide->hits}}</span></span>&nbsp;&nbsp;
+				<h3>
+                    {{$guide->title}}
+				</h3>
+                <p class="social-actions">
+                        <span class="text-pink">  浏览&nbsp; <span class="hits"> {{$guide->hits}}</span></span>&nbsp;&nbsp;
                         <a href="#" class="@if(Auth::check()) btn-fav @endif" 
                             data-target="guide" data-action="fav" data-id="{{$guide->id}}" >
                             @if($faved)
@@ -41,15 +43,13 @@
                             赞&nbsp;
                             <span class="likes">{{$guide->likes}}</span> 
                         </a>
-                    </span>
-                    {{$guide->title}}
-				</h2>
+                </p>
 				{!! $guide->content !!}
 
 			</article>
             @include('wedgits.share-bar')
             <div class="comments" id="comments">
-                <h3 class="comment-head text-orange"> <span class="pull-right text-gray">{{$guide->comments->count()}} 条</span> <i class="glyphicon glyphicon-comment"></i> 邂逅评论</h3>
+                <h3 class="comment-head text-pink"> <span class="pull-right text-gray">{{$guide->comments->count()}} 条</span> <i class="glyphicon glyphicon-comment"></i> 邂逅评论</h3>
                 
                 @foreach($guide->comments as $comment)
                      <div class="media">
@@ -61,7 +61,7 @@
                         <div class="media-body">
                             <h4 class="media-heading text-muted"> 
                             <span class="pull-right text-gray">{{$comment->created_at}}</span> {{$comment->user->name}}</h4>
-                            <p class="text-md text-gray">{{$comment->content}}</p>
+                            <p class="text-md text-gray">{!!$comment->content!!}</p>
                         </div>
                     </div>
 
@@ -78,6 +78,7 @@
                     <div class="row">
                         <div class="col-md-10">
                             <input type="text" name="content" id="commentContent" class="form-control" placeholder="立即参与评论...">
+                             <p class="emotion-line"><span class="emotion">添加表情</span></p> 
                         </div>
                         <div class="col-md-2">
                             <button type="submit" class="btn btn-block btn-info"> <i class="glyphicon glyphicon-pencil"></i> 评论</button>
@@ -93,66 +94,28 @@
 		<div class="col-md-3">
                     @include('common.side-advert')
                     <p>&nbsp;</p>
-					<h4>相关游记</h4>
+					<h4>游记推荐</h4>
+                    @foreach($topNotes as $note)
                     <div class="media">
                         <div class="media-left">
-                            <a href="#">
-                                <img class="media-object " src="/img/thumb1.jpg" alt="..."  >
+                            <a href="/notes/{{$note->id}}" target="_blank">
+                                <img class="media-object " src="{{asset($note->thumb)}}" alt="..."  >
                             </a>
                         </div>
                         <div class="media-body">
-                            <h5 class="media-heading"><a class="pull-right username" href="#">朱小北</a>希腊映像</h5>
-                            <p>这里有曾去过希腊游玩的旅友们所写的希腊游记/旅游博客,这里有精彩的回忆...</p>
+                            <h5 class="media-heading"><a class="pull-right username" href="/u/{{$note->user->id}}" target="_blank">{{$note->user->name}}</a>
+                            <a href="/notes/{{$note->id}}" target="_blank" class="link-orange">{{str_limit($note->title,18)}}</a>   </h5>
+                            <p>{{str_limit($note->description,50)}}</p>
                         </div>
                     </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/img/thumb2.jpg" alt="..."  >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a class="pull-right username" href="#">愤怒的葡萄</a>重游北京</h5>
-                            <p>这里有曾去过希腊游玩的旅友们所写的希腊游记/旅游博客...</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/img/thumb3.jpg" alt="..."  >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a class="pull-right username" href="#">小鱼儿</a>最美九寨</h5>
-                            <p>这里有曾去过希腊游玩的旅友们,这里有精彩的回忆...</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/img/thumb5.jpg" alt="..."  >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a class="pull-right username" href="#">笑笑</a>身边的美景</h5>
-                            <p>这里有曾去过希腊游玩的旅友们所写的希腊游记/旅游博客,这里有精彩的回忆...</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object" src="/img/thumb-tianshan.jpg" alt="..."  >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="media-heading"><a class="pull-right username" href="#">大漠</a>天池</h5>
-                            <p>这里有曾去过希腊游玩的旅友们所写的希腊游记,有精彩的回忆...</p>
-                        </div>
-                    </div>
-                    <br/>
-                    <h4>关注我们的公众微信平台</h4>
-                    <div class=" qrcode">
-                        <img src="/img/qrcode.jpg" alt=""/>
+                    @endforeach
+                    
+                    <hr/>
+                    <div class="text-center">
+                        <p>关注我们的公众微信平台</p>
+                        
+                            <img src="/img/qrcode.jpg" alt="" class="fit" />
+                        
                     </div>
 		</div>
 		<div class="col-md-1">

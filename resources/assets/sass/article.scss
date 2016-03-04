@@ -1,0 +1,19 @@
+    .article-side{
+        padding:0;
+        background:#fff;
+
+        .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+            background-color: $pink-color;
+            border-color: $pink-color;
+        }
+
+        .list-group-item{
+            padding-left:30px;
+        }
+        .list-group-item:first-child{
+            border-radius: 0;
+        }
+        .list-group-item:last-child{
+            border-radius: 0;
+        }
+    }

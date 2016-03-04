@@ -5,6 +5,11 @@
         }
 	});
 
+	$('.emotion').qqFace({ 
+        assign:'commentContent', //给输入框赋值 
+        path:'/img/face/'    //表情图片存放的路径 
+    });
+
 
 	$('body').on('click','a.btn-remove',function(e){
 		var msg = $(this).data('message')?$(this).data('message'):'您确定删除这条数据吗？';
@@ -33,6 +38,14 @@
 			}
 		});
 	}
+
+	function replace_em(str){ 
+	    str = str.replace(/\</g,'<；'); 
+	    str = str.replace(/\>/g,'>；'); 
+	    str = str.replace(/\n/g,'<；br/>；'); 
+	    str = str.replace(/\[em_([0-9]*)\]/g,'<img src="face/$1.gif" border="0" />'); 
+	    return str; 
+	} 
 	
 
 	$('a.btn-fav').on('click',function(e){
@@ -52,7 +65,7 @@
 		});
 	});
 
-	$('a.share-weixin').webuiPopover();
+	// $('a.share-weixin').webuiPopover();
 
 	$('a.pop-login').webuiPopover({width:500});
 

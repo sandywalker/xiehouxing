@@ -22,6 +22,10 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::get('weibo/callback','WeiboController@callback');
+Route::get('qq/login','QQController@login');
+Route::get('qq/callback','QQController@callback');
+
 
 // Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'], function()  
 // {
@@ -35,6 +39,9 @@ Route::get('/u/{id}/notes','SpaceController@notes');
 Route::get('/u/{id}/favs','SpaceController@favs');
 Route::get('/u/{id}/acts','SpaceController@acts');
 Route::get('/notes/notes','NoteController@notes');
+
+
+Route::any('/articles/{tag}','ArticleController@show');
 
 // 微信支付
 Route::get('/wxpay/weixin','WxPayController@weixin');
@@ -136,6 +143,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::get('notes/{id}/comments', 'AdminNoteController@noteComments');
 	Route::get('notes/{id}/{result}','AdminNoteController@changeStates');
 	Route::get('notes','AdminNoteController@index');
+	Route::delete('notes/{id}','AdminNoteController@delete');
 
 	Route::resource('ncomments/{id}/setbest', 'AdminNoteCommentController@setBest');
 	Route::resource('ncomments', 'AdminNoteCommentController');
@@ -151,6 +159,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 	Route::post('activities/{id}/photos', 'AdminActivityPhotoController@store');
 	Route::get('activities/select/products','AdminActivityController@selectProducts');
 	Route::resource('activities', 'AdminActivityController');
+
+	Route::resource('seo','AdminSeoController');
+	Route::resource('articles','AdminArticleController');
 
 
 

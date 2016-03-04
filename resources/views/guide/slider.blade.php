@@ -1,9 +1,9 @@
- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+ <div id="carousel-guide" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-guide" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-guide" data-slide-to="1"></li>
+                            <li data-target="#carousel-guide" data-slide-to="2"></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
@@ -32,10 +32,10 @@
                         </div>
 
                         <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <a class="left carousel-control" href="#carousel-guide" role="button" data-slide="prev">
                             <span class="icon icon-arrow-left" aria-hidden="true"></span>
                         </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <a class="right carousel-control" href="#carousel-guide" role="button" data-slide="next">
                             <span class="icon icon-arrow-right" aria-hidden="true"></span>
                         </a>
 </div>

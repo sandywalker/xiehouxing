@@ -81,5 +81,10 @@ class Guide extends Model
         return $this->area;
     }
 
+    public function banner()
+    {
+        return $this->banner_thumb ==null ? "img/banner-guide.jpg":$this->banner_thumb;
+    }
+
         
 }

@@ -22,6 +22,13 @@ class AdminNoteController extends Controller
         return view('admin.notes.index',$this->getNotesQuery($request,$query));
     }
 
+    public function delete($id)
+    {
+        $note = Note::findOrFail($id);
+        Note::destroy($id); 
+        return redirect(URL::previous());
+    }
+
     public function checkNotes(Request $request)
     {
         $query = Note::where('states','=',0);

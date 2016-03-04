@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'qq' => [
+        'client_id' => '101276261',
+        'client_secret' => 'b357843fbce17ec4e570fac7f0d7e446',
+        'redirect' => 'http://www.xiehouxing.com/qq/callback',  
+    ],
+
 ];

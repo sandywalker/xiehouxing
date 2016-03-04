@@ -31,6 +31,7 @@ class NoteController extends Controller
     {
         $notes = Note::where('states',1)->orderBy('id','desc')->with('user')->paginate(24);
         return view('notes.notes',compact('notes'));
+        
     }
 
     /**
@@ -141,7 +142,7 @@ class NoteController extends Controller
         $note = Note::findOrFail($id);   
         $comment = new NoteComment;
         $comment->user_id = Auth::user()->id;
-        $comment->content = $request->input('content');
+        $comment->content = ubbReplace($request->input('content'));
         $comment->note_id = $id;
         $comment->save();
         Note::updateCommentCount($note);

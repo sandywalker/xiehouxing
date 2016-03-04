@@ -48,17 +48,8 @@ class AdminBannerController extends Controller
     public function store(BannerRequest $request)
     {
         $banner =  Banner::create($request->all());
-        $file = $request->file('photo');
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $path = 'img/banners/';
-        $file->move($path,$filename);
-
-        $banner->path = $path.$filename;
-        list($width, $height) = getimagesize($banner->path);
-        $banner->width = $width;
-        $banner->height = $height;
+        Banner::saveImage($banner,$request->file('photo'));
         $banner->save();
-        
         return redirect('/admin/banners');
     }
 
@@ -97,6 +88,8 @@ class AdminBannerController extends Controller
     {
         $banner = Banner::findOrFail($id);
         $banner->update($request->all());
+        Banner::saveImage($banner,$request->file('photo'));
+        $banner->save();
         return redirect('/admin/banners');
     }
 

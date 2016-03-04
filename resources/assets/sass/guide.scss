@@ -1,3 +1,12 @@
+#carousel-guide{
+    height:400px;
+    max-height: 400px;
+    overflow: hidden;
+    .item img{
+        height:400px;
+    }
+}
+
 /*---------------------------------- guide-list -------------------------------------------*/
 
 .guide-list{
@@ -89,7 +98,7 @@
 
 
 .guide-banner{
-    max-height:500px;
+    max-height:400px;
     overflow: hidden;
     position: relative;
     .guide-brief{
@@ -100,7 +109,7 @@
         color:#fff;
         h1{
             text-align: center;
-            font-size:58px;
+            font-size:52px;
             text-shadow: #333 1px 1px 1px;
             letter-spacing: 10px;
             margin-bottom: 20px;
@@ -121,11 +130,11 @@
 .guide-main{
 
     article{
-        h2{
+        h3{
             margin-top:0;
-            margin-bottom: 30px;
-            line-height: 50px;
+            line-height: 40px;
             border-bottom: 3px solid $main-color;
+            margin-bottom:10px;
             small{
                 line-height: 50px;
             }

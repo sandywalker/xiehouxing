@@ -22,7 +22,7 @@ class CreateActivityCommentTable extends Migration
             $table->integer('istop')->unsigned()->default(0); 
             $table->integer('likes')->unsigned()->default(0); 
             $table->integer('activity_id')->unsigned();
-            $table->foreign('activity_id')->references('id')->on('notes')->onDelete('cascade');
+            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
 
             $table->timestamps();
         });

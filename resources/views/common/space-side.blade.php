@@ -39,7 +39,7 @@
 		<ul class="list-group">
 		  @foreach($followings as $following)
 		  <li class="list-group-item">
-		  	 <img src="{{asset(App\User::avatar($following))}}" alt="" class="thumb-xxs">
+		  	 <a href="/u/{{$following->user_id}}" target="_blank"><img src="{{asset(App\User::avatar($following))}}" alt="" class="thumb-xxs"></a>
 		  	{{$following->name}}</li>
 		  @endforeach
 		</ul>
@@ -53,7 +53,9 @@
 		<ul class="list-group">
 		  @foreach($fans as $fan)
 		  <li class="list-group-item">
-		  	 <img src="{{asset(App\User::avatar($fan))}}" alt="" class="thumb-xxs">
+		  	 <a href="/u/{{$fan->follower_id}}" target="_blank">
+		  	 	<img src="{{asset(App\User::avatar($fan))}}" alt="" class="thumb-xxs">
+		  	 </a>
 		  	{{$fan->name}}</li>
 		  @endforeach
 		</ul>

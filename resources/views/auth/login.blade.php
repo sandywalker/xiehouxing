@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-info panel-login">
-                <div class="panel-heading">登录邂逅行</div>
+                <div class="panel-heading"> <a href="/" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a> 登录邂逅行</div>
                 <div class="panel-body">
                     @include('error')
                     <div class="row">
@@ -54,6 +54,8 @@
                             <h4 class="text-center">用第三方平台快速登录</h4>
                             <p>&nbsp;</p>
                             <p>&nbsp;</p>
+                               {{--  <a href="{{$weibo_url}}">微博登录</a>
+                                <a href="/qq/login">QQ登录</a>  --}}
                             <p class="text-muted text-center">稍后支持，敬请期待！</p>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Note;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,8 @@ class HomeController extends Controller
     	$topNotes = Note::topNotes()->with('user')->take(6)->get();
     	//$users = User::topUsers()->take(10)->get();
     	$adverts = Banner::where('tag','indexAdvert')->take(2)->get();
-    	return view('index',compact('activities','guides','topNotes','adverts'));
+    	$banners = Banner::where('tag','indexBanner')->orderBy('orders')->get();
+    	return view('index',compact('activities','guides','topNotes','adverts','banners'));
     }
 
 

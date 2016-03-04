@@ -17,6 +17,7 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
+							<th width="40">ID</th>
 							<th width="80">预览图</th>
 							<th>标题和简介</th>
 							<th width="60">类型</th>
@@ -31,6 +32,7 @@
 					<tbody class="text-sm">
 						@foreach($products as $product)
 						<tr>
+							<td>{{$product->id}}</td>
 							<td>
 								<div>
 								  <a href="{{asset($product->thumb)}}" class="product-thumb"><img src="{{asset($product->thumb)}}" alt="" style="width:100%;"></a>

@@ -17,6 +17,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
+						<th width="40">ID</th>
 						<th width="200">攻略</th>
 						<th>评论</th>
 						<th width="100">评论人</th>
@@ -27,6 +28,7 @@
 				<tbody>
 					@foreach($comments as $comment)
 						<tr>
+							<td>{{$comment->id}}</td>
 							<td class="text-info"><a href="/notes/{{$comment->note->id}}" target="_blank">{{$comment->note->title}}</a></td>
 							<td>
 								

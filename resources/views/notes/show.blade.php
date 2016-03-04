@@ -14,7 +14,7 @@
 			<h3>{{$note->title}}</h3>
 			<p class="text-muted">
 				<span class="pull-right social-actions">
-                        <span class="text-orange"> 浏览&nbsp; <span class="hits"> {{$note->hits}}</span></span>&nbsp;&nbsp;
+                        <span class="text-pink"> 浏览&nbsp; <span class="hits"> {{$note->hits}}</span></span>&nbsp;&nbsp;
                         
                         <a href="#" class="@if(Auth::check()) btn-like @endif" 
                             data-target="note" data-action="like" data-id="{{$note->id}}">
@@ -36,7 +36,7 @@
 			@include('wedgits.share-bar')
 			<p>&nbsp;</p>
 			<div class="comments comments-note" id="comments">
-                <h4 class="comment-head text-orange"> <span class="pull-right text-gray">{{$note->comments->count()}} 条</span> <i class="glyphicon glyphicon-comment"></i> 评论</h4>
+                <h4 class="comment-head text-pink"> <span class="pull-right text-gray">{{$note->comments->count()}} 条</span> <i class="glyphicon glyphicon-comment"></i> 评论</h4>
                 
                 @foreach($note->comments as $comment)
                      <div class="media">
@@ -48,7 +48,7 @@
                         <div class="media-body">
                             <h5 class="media-heading text-muted"> 
                             <span class="pull-right text-gray">{{$comment->created_at}}</span> <strong>{{$comment->user->name}}</strong> </h5>
-                            <p class="text-md text-gray">{{$comment->content}}</p>
+                            <p class="text-md text-gray">{!!$comment->content!!}</p>
                         </div>
                     </div>
 
@@ -64,6 +64,7 @@
 				    <div class="row">
 				        <div class="col-md-10">
 				            <input type="text" name="content" id="commentContent" class="form-control" placeholder="立即参与评论...">
+				            <p class="emotion-line"><span class="emotion">添加表情</span></p> 
 				        </div>
 				        <div class="col-md-2">
 				            <button type="submit" class="btn btn-block btn-info"> <i class="glyphicon glyphicon-pencil"></i> 评论</button>

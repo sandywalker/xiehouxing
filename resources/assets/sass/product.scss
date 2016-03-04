@@ -4,7 +4,7 @@
 }
 
 #activity-banner{
-    height:300px;
+    height:400px;
     overflow: hidden;
     position:relative;
     img{
@@ -268,6 +268,33 @@
 
 .old-activities{
     margin-bottom:20px;
+}
+
+.top-activities{
+    margin-bottom: 40px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid #fff;
+    &:hover{
+        
+        border:1px solid $pink-color
+    }
+    .thumb-image{
+        position:relative;
+    }
+    .calendar{
+        position:absolute;
+        top:10px;
+        left:10px;
+    }
+
+    .description{
+        min-height: 90px;
+        border-bottom:1px dotted #ccc;
+    }
+    .foot{
+
+    }
 }
 
 .wepay-logo{

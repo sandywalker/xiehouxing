@@ -5,17 +5,17 @@
                 <div class="foot-list">
                     <dl>
                         <dt>关于我们</dt>
-                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','101');" title="邂逅行介绍">邂逅行介绍</a></dd>
-                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','102');" title="招贤纳士">招贤纳士</a></dd>
-                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','103');" title="网站荣誉">网站荣誉</a></dd>
-                        <dd><a href="#" target="_blank" onclick="return FocusCount('tail','104');" title="联系我们">联系我们</a></dd>
+                        <dd><a href="/articles/about" target="_blank"  title="邂逅行介绍">邂逅行介绍</a></dd>
+                        <dd><a href="/articles/join" target="_blank"  title="招贤纳士">招贤纳士</a></dd>
+                        <dd><a href="/articles/honour" target="_blank"  title="网站荣誉">网站荣誉</a></dd>
+                        <dd><a href="/articles/contact" target="_blank"  title="联系我们">联系我们</a></dd>
                     </dl>
 
                     <dl>
                         <dt>新手上路</dt>
-                        <dd><a href="#" target="_blank" title="预订帮助" onclick="return FocusCount('tail','301');">预订帮助</a></dd>
-                        <dd><a href="#" target="_blank" title="服务条款" onclick="return FocusCount('tail','302');">服务条款</a></dd>
-                        <dd><a href="#" target="_blank" title="版权声明" onclick="return FocusCount('tail','303');">版权声明</a></dd>
+                        <dd><a href="/articles/order" target="_blank" title="预订帮助" >预订帮助</a></dd>
+                        <dd><a href="/articles/service" target="_blank" title="服务条款" >服务条款</a></dd>
+                        <dd><a href="/articles/copyright" target="_blank" title="版权声明" >版权声明</a></dd>
                     </dl>
                     <dl>
                         <dt>合作伙伴</dt>
@@ -26,18 +26,19 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="col-md-2">
-                <p><strong>关注我们</strong></p>
+            <div class="col-md-2 text-right">
+                <p><strong>邂逅游公众号</strong></p>
                 <p>
-                    <a href="#"><img src="{{asset('img/weibo.png')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('img/wechat.png')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('img/qqspace.png')}}" alt=""/></a>
-                    <a href="#"><img src="{{asset('img/renren.png')}}" alt=""/></a>
+                    <img  class="qrcode" src="{{asset('img/qrcode2.jpg')}}" alt=""/>
+                   {{--  <a href="#"><img src="{{asset('img/weibo.png')}}" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/wechat.png')}}" alt=""/></a> --}}
+                   {{--  <a href="#"><img src="{{asset('img/qqspace.png')}}" alt=""/></a>
+                    <a href="#"><img src="{{asset('img/renren.png')}}" alt=""/></a> --}}
                 </p>
             </div>
             <div class="col-md-2">
                 <div class="text-right">
-                    <p><strong>邂逅游公众号</strong></p>
+                    <p><strong>邂逅行服务号</strong></p>
                     <p>
                         <img  class="qrcode" src="{{asset('img/qrcode.jpg')}}" alt=""/>
                     </p>
@@ -54,10 +55,9 @@
             <div class="col-md-3">
                 <div >
                     <div class="foot-logo">
-                        <img src="{{asset('img/foot-logo.png')}}" alt=""/>
+                        <img src="{{asset('img/logo-i.png')}}" alt=""/>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-6">
                 <div >
@@ -84,7 +84,7 @@
             <div class="col-xs-3">
 
                 <p class="text-center">
-                    <img  class="qrcode" src="{{asset('img/qrcode.png')}}" alt=""/>
+                    <img  class="qrcode" src="{{asset('img/qrcode.jpg')}}" alt=""/>
                 </p>
                 <p class="text-center"><strong>公众号</strong></p>
             </div>

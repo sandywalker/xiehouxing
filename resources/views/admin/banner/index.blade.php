@@ -65,11 +65,6 @@
 	<script>
 			$('.banner-thumb').magnificPopup({type:'image'});
 
-			$('.btn-remove').on('click',function(e){
-				if (confirm('您确定删除这条数据吗?')){
-					return true;
-				}
-				return false;
-			});
+			
 	</script>
 @endsection

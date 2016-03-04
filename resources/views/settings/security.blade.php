@@ -29,6 +29,7 @@
 	            @endif
 				<form class="form-horizontal" action="/settings/cpass" method="POST">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<p>账户：{{$user->email}} </p>
 					<div class="form-group">
 					    <label for="password" class="col-sm-2 control-label">现在的密码:</label>
 					    <div class="col-sm-10 col-md-5">

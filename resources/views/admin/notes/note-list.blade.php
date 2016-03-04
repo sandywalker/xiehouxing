@@ -12,6 +12,7 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
+							<th width="40">ID</th>
 							<th width="80">预览图</th>
 							<th>标题和简介</th>
 							<th width="80">地点</th>
@@ -24,6 +25,7 @@
 					<tbody class="text-sm">
 						@foreach($notes as $note)
 						<tr>
+							<td>{{$note->id}}</td>
 							<td>
 								<div>
 								  <a href="{{asset($note->thumb)}}" class="note-thumb"><img src="{{asset($note->thumb)}}" alt="" style="width:100%;"></a>
@@ -73,6 +75,8 @@
 
 									@if($note->states == -1)
 										<a href="/admin/notes/{{$note->id}}/enable" class="btn btn-success btn-xs ">启用</a>
+										 @include('wedgits.link-delete',['action'=>'/admin/notes/'.$note->id]) 
+
 									@elseif($note->states==1&&!$note->istop)
 										<a href="/admin/notes/{{$note->id}}/disable" class="btn btn-danger btn-xs ">禁止</a>
 									@endif

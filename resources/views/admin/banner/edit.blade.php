@@ -3,7 +3,7 @@
 
 
 @section('content')
-{!! Form::model($banner,['method'=>'PUT','url'=>'/admin/banners/'.$banner->id]) !!}
+{!! Form::model($banner,['method'=>'PUT','url'=>'/admin/banners/'.$banner->id,'enctype'=>'multipart/form-data']) !!}
 
 {{-- <form action="/admin/banners" method="POST" enctype="multipart/form-data"> --}}
 

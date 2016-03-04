@@ -140,7 +140,7 @@ class ActivityController extends Controller
         $activity = Activity::findOrFail($id);
         $comment = new ActivityComment;
         $comment->user_id = Auth::user()->id;
-        $comment->content = $request->input('content');
+        $comment->content = ubbReplace($request->input('content'));
         $comment->activity_id = $id;
         $comment->save();
         return redirect('/activities/'.$id.'#comments');

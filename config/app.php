@@ -147,7 +147,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class,
 
     ],
 
@@ -200,7 +201,8 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
-        'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class
+        'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class
 
     ],
 

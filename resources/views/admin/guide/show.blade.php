@@ -4,9 +4,9 @@
 @section('content')
 
 <div class="guide-banner">
-            <img src="{{asset($guide->banner_thumb)}}" alt="..." class="full-width">
+            <img src="{{asset($guide->banner())}}" alt="..." class="full-width">
             <div class="guide-brief">
-                <h1>{{$guide->title}}</h1>
+                <h1>{{str_limit($guide->title,30)}}</h1>
                 <h4>{{$guide->description}}</h4>
             </div>
 </div>

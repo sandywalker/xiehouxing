@@ -36,7 +36,7 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $fillable = ['id','name','username', 'email','wechat', 'password','address'
-                    ,'sex','birth','occupation','description','avatar','banner','phone_number'];
+                    ,'sex','birth','occupation','description','avatar','banner','phone_number','binding'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -117,5 +117,9 @@ class User extends Model implements AuthenticatableContract,
     public function isme()
     {
         return Auth::check()&&Auth::user()->id == $this->id;
+    }
+
+    public static function exists($uname){
+        return User::where('username',$uname)->count()>0;
     }
 }

@@ -1,7 +1,9 @@
 @extends('def')
 
 @section('id','guide')
-@section('title','攻略')
+@section('title')
+    {{$seos['guide']->title}}
+@endsection
 @section('content')
 
 @include('guide.slider')
@@ -106,17 +108,18 @@
             	<div class="col-md-9">
             		            @foreach($guides as $guide)
             			            <div class="row best-guides">
-            			            	<div class="col-md-3">
+            			            	<div class="col-md-4">
             			            		<div class="thumb-image">
             			            			<a href="/guides/{{$guide->id}}" target="_blank"><img src="{{$guide->thumb}}" alt=""></a>
             			            		</div>
             			            	</div>
-            			            	<div class="col-md-9">
+            			            	<div class="col-md-8">
             			            		<h4 >
                                                 <span class="pull-right text-sm text-gray">
                                                     <i class="glyphicon glyphicon-map-marker"></i> <span class="text-orange">{{$guide->place}} </span>  &nbsp;&nbsp;
                                                 </span>
-                                                <a href="/guides/{{$guide->id}}" target="_blank" class="link-main"><strong>{{$guide->title}}</strong></a> 	
+                                                <a href="/guides/{{$guide->id}}" target="_blank" class="link-main"><strong>
+                                                {{str_limit($guide->title,40)}}</strong></a> 	
                                             </h4>
             			            		<p class="text-muted">
             			            			{{$guide->description}}

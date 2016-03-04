@@ -16,7 +16,7 @@
 			<div class="col-md-12">
 
 				<h2>{{$activity->title}}</h2>	
-				<p>{{$activity->description}}</p>			
+				<p>{{$activity->description}}</p>
 			</div>		
 		</div>
 	</div>
@@ -145,13 +145,12 @@
 
                   if (states==0){
 	                  var progressBar = new ProgressBar.Circle('#memberInfo', {
-	                  	  color: '#ff980a',
+	                  	  color: '#ef4078',
 	                  	  trailColor: '#ccc',
 	    				  trailWidth: 3,
 	                      strokeWidth: 3,
 	                      text:{
-	                      	 value:memberCount +'/12'
-	                      	
+	                      	 value:memberCount
 	                      }
 
 	                  });

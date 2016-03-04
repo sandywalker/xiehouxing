@@ -32,6 +32,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
+						<th width="40">ID</th>
 						<th width="200">活动</th>
 						<th>订单号</th>
 						<th width="100">用户</th>
@@ -47,6 +48,7 @@
 				<tbody>
 					@foreach($orders as $order)
 						<tr>
+							<td>{{$order->id}}</td>
 							<td class="text-info">
 								<a href="/activities/{{$order->activity->id}}" target="_blank">{{$order->activity->title}}</a>
 							</td>

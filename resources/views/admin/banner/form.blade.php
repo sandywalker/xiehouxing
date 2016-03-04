@@ -4,6 +4,9 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<p>&nbsp;</p>
+			@if($action=='编辑')
+			<p class="text-center"><img src="{{asset($banner->path)}}" alt="" style="max-width:500px;"></p>
+			@endif
 			<legend>{{ $action}}图片</legend>
 			 <div class="form-group">
 			 	{!!Form::label('tag','标签')!!} <span class="text-danger">*</span>
@@ -17,12 +20,12 @@
 				{!!Form::label('description','描述')!!} 
 				{!!Form::textarea('description',null,['class'=>'form-control','rows'=>'3'])!!}
 			</div>
-			@if($action=='添加')
+			
 			<div class="form-group">
 				<label for=""> 图片 <span class="text-danger">*</span></label>
 				<input type="file" class="form-control" name="photo" placeholder="横幅图片">
 			</div>
-			@endif
+			
 			 <div class="form-group">
 			 	{!!Form::label('link','链接地址')!!} 
 				{!!Form::text('link',null,['class'=>'form-control'])!!}

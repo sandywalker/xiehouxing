@@ -10,6 +10,7 @@ use App\GuideLike;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\CommentRequest;
+use App\Note;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,12 +51,12 @@ class GuideController extends Controller
     public function show($id)
     {
        $guide = Guide::findOrFail($id);
-
+       $topNotes = Note::topNotes()->with('user')->take(6)->get();
        $guide->load('comments.user');
        $guide->incHits();
        $faved =  Auth::check()&&GuideFav::exists(Auth::user()->id,$guide->id);
        $liked =  Auth::check()&&GuideLike::exists(Auth::user()->id,$guide->id);
-       return view('guide.show',compact('guide','faved','liked'));
+       return view('guide.show',compact('guide','faved','liked','topNotes'));
     }
 
     public function storeComments(CommentRequest $request,$id)
@@ -63,7 +64,7 @@ class GuideController extends Controller
         $guide = Guide::findOrFail($id);
     	$comment = new GuideComment;
     	$comment->user_id = Auth::user()->id;
-    	$comment->content = $request->input('content');
+    	$comment->content = ubbReplace($request->input('content'));
     	$comment->guide_id = $id;
     	$comment->save();
         Guide::updateCommentCount($guide);

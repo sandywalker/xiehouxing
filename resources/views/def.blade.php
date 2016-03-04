@@ -5,7 +5,10 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="wb:webmaster" content="52ae6570fb323f38" />
+	<meta property="qc:admins" content="3317673677601507501676375" />
 	<title>邂逅行 - @yield('title','缘份随行') </title>
+	@include('common.seo')
 
 	
 	<link href="{{ asset('/css/libs.css') }}" rel="stylesheet">
@@ -29,6 +32,8 @@
 
 	
 	<script src="{{ asset('/js/libs.js') }}"></script>
+	<script src="{{ asset('/js/vendor/jquery.qqFace.js') }}"></script>
+
 	<script src="{{ asset('/js/main.js') }}"></script>
 	
 	<script>

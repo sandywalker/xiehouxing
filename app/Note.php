@@ -66,4 +66,8 @@ class Note extends Model
     	}
     	$this->description =   str_limit(strip_tags($this->content),200); 
     }
+
+    public static function remove($note){
+ 		Note::destroy($note);   	
+    }
 }

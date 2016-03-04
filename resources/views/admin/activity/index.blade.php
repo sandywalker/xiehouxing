@@ -29,6 +29,7 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
+							<th width="40">ID</th>
 							<th width="80">预览图</th>
 							<th>标题和简介</th>
 							<th width="150">出行时间</th>
@@ -44,7 +45,8 @@
 					</thead>
 					<tbody class="text-sm">
 						@foreach($activities as $activity)
-						<tr>
+						<tr>	
+							<td>{{$activity->id}}</td>
 							<td>
 								<div>
 								  <a href="{{asset($activity->thumb)}}" class="activity-thumb"><img src="{{asset($activity->thumb)}}" alt="" style="width:100%;"></a>

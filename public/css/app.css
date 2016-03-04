@@ -14,6 +14,9 @@
 a.link-orange, a.link-orange:visited {
   color: #ff980a; }
 
+a.link-orange:hover {
+  color: #ef4078; }
+
 a.link-red, a.link-red:visited {
   color: #e00; }
 
@@ -22,6 +25,12 @@ a.link-main, a.link-main:visited {
 
 a.link-main:hover {
   color: #ff980a; }
+
+a.link-black, a.link-black:visited {
+  color: #000; }
+
+a.link-black:hover {
+  color: #00a7cf; }
 
 .fit {
   width: 100%; }
@@ -49,6 +58,9 @@ img.full-width {
 
 .text-gray {
   color: #ddd; }
+
+.text-pink {
+  color: #ef4078; }
 
 .text-sm {
   font-size: 12px; }
